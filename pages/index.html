@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Humane — Premium Wildlife Care & Prevention</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232D5016'/><text y='22' x='5' font-size='18'>🌲</text></svg>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        /* Local Overrides for Extra Premium Feel */
+        .hero-mask {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(13, 20, 8, 0.95) 30%, rgba(13, 20, 8, 0) 100%);
+            z-index: 1;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 4rem;
+            font-family: var(--font-display);
+            color: var(--primary);
+            opacity: 0.1;
+            font-weight: 900;
+        }
+
+        .feature-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-point-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.75rem;
+            margin-top: 0.2rem;
+        }
+
+        /* HP Hero Styles */
+        .hp-hero {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 100vh;
+            background-image: url('https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+            padding: 4rem 1.5rem;
+            text-align: center;
+            margin-top: -70px;
+            /* Offset for sticky header if needed, but header is sticky so it overlays */
+        }
+
+        .hp-hero-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+            z-index: 1;
+        }
+
+        .hp-clouds-top,
+        .hp-clouds-bottom {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-size: cover;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .hp-clouds-top {
+            top: 0;
+            background-image: url('https://github.com/joshuaward/codepen-images/blob/master/clouds-left.png?raw=true');
+            animation: clouds1 110s linear infinite;
+        }
+
+        .hp-clouds-bottom {
+            bottom: 0;
+            background-image: url('https://github.com/joshuaward/codepen-images/blob/master/clouds-right.png?raw=true');
+            animation: clouds2 100s linear infinite;
+        }
+
+        @keyframes clouds1 {
+            to {
+                background-position: 200%;
+            }
+        }
+
+        @keyframes clouds2 {
+            to {
+                background-position: -200%;
+            }
+        }
+
+        .hp-hero-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hp-hero h1 {
+            color: white;
+            font-weight: 100;
+            font-size: clamp(4rem, 15vw, 7rem);
+            margin-top: 1rem;
+            letter-spacing: 0.1em;
+            font-family: serif;
+            text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hp-hero h1 i {
+            margin: 0 10px;
+            color: var(--primary);
+            text-shadow: 0 0 25px rgba(255, 25, 25, 0.6);
+        }
+
+        .hp-subtitle {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 300;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hp-actions {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hp-hero .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .hp-hero .btn-primary:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 25, 25, 0.4);
+        }
+
+        .hp-hero .btn-secondary {
+            color: white !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .hp-hero .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white !important;
+            color: white !important;
+        }
+
+        /* Symbol Styles */
+        .symbol {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            height: 210px;
+            transform: scale(0.8);
+        }
+
+        .deathly {
+            position: absolute;
+            bottom: 7px;
+            left: 50%;
+            width: 230px;
+            height: 5px;
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .deathly:before,
+        .deathly:after {
+            position: absolute;
+            content: '';
+            bottom: -14px;
+            width: 5px;
+            height: 224px;
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            z-index: 11;
+        }
+
+        .deathly:before {
+            left: 56px;
+            transform: rotate(30.75deg);
+        }
+
+        .deathly:after {
+            right: 56px;
+            transform: rotate(-30.5deg);
+        }
+
+        .hallows {
+            position: absolute;
+            bottom: 7px;
+            left: 50%;
+            width: 130px;
+            height: 130px;
+            border: 5px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            transform: translateX(-50%);
+        }
+
+        .hallows:before {
+            position: absolute;
+            content: '';
+            top: -68px;
+            left: 50%;
+            width: 5px;
+            height: 190px;
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 1024px) {
+            .property-shield-grid {
+                grid-template-columns: 1fr !important;
+                gap: 4rem !important;
+            }
+
+            .property-shield-img {
+                height: 400px !important;
+            }
+
+            .property-shield-badge {
+                top: 20px !important;
+                right: 20px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr !important;
+                grid-template-rows: auto !important;
+                gap: 1.5rem !important;
+            }
+
+            .gallery-grid-item {
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
+                height: 300px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-mark"><svg viewBox="0 0 24 24">
+                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
+                    </svg></span>
+                Humane
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="home2.html">Premium</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html" class="nav-dashboard">Dashboard</a>
+            </nav>
+            <div class="header-controls">
+                <button class="icon-btn" data-theme-toggle title="Theme"><svg viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg></button>
+                <button class="icon-btn" data-rtl-toggle title="RTL"><svg viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none">
+                        <path d="M21 10H7M21 6H7M21 14H3M21 18H3" />
+                    </svg></button>
+                <a href="login.html" class="btn-secondary" style="padding:0.55rem 1.25rem;font-size:0.875rem;">Login</a>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="overlay" id="overlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24">
+                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
+                    </svg></span>Humane</a>
+            <button class="mobile-nav-close icon-btn" id="mobileNavClose"><svg viewBox="0 0 24 24" width="18"
+                    height="18" stroke="currentColor" fill="none" stroke-width="2">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                </svg></button>
+        </div>
+        <a href="index.html">Home</a>
+        <a href="home2.html">Premium</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="dashboard.html" class="nav-dashboard">Dashboard</a>
+    </nav>
+
+    <!-- ① HP INSPIRED HERO -->
+    <section class="hp-hero">
+        <div class="hp-hero-bg-overlay"></div>
+        <div class="hp-clouds-top"></div>
+        <div class="hp-clouds-bottom"></div>
+
+        <div class="container hp-hero-content">
+            <div class="symbol">
+                <div class="deathly"></div>
+                <div class="hallows"></div>
+            </div>
+            <h1>H<i class="fa fa-bolt" aria-hidden="true"></i>P</h1>
+            <p class="hp-subtitle">Humane Protection & Wildlife Exclusion</p>
+            <div class="hp-actions">
+                <a href="contact.html" class="btn-primary">Get Instant Quote</a>
+                <a href="services.html" class="btn-secondary">Our Methodology</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ② THE HUMANE PROCESS -->
+    <section style="background:var(--bg-2);padding:8rem 0;">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:5rem;" class="reveal">
+                <span class="section-label">Our Methodology</span>
+                <h2 style="margin-bottom:1rem;">The 4-Step Exclusion Protocol</h2>
+                <p style="max-width:580px;margin:0 auto;">A systematic approach rooted in animal behavior and building
+                    science.</p>
+            </div>
+
+            <div class="grid-4" style="gap:2rem;">
+                <div class="card reveal delay-1" style="position:relative;overflow:hidden;">
+                    <div class="card-icon">🔍</div>
+                    <h3>Inspect</h3>
+                    <p>A full 360° vulnerability audit of your property from basement to peak, identifying every
+                        micro-entry point.</p>
+                </div>
+                <div class="card reveal delay-2" style="position:relative;overflow:hidden;">
+                    <div class="card-icon">✋</div>
+                    <h3>Exclude</h3>
+                    <p>Using one-way ethical exit valves, we allow wildlife to leave and never return—completely
+                        stress-free.</p>
+                </div>
+                <div class="card reveal delay-3" style="position:relative;overflow:hidden;">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Protect</h3>
+                    <p>We seal entry points with industrial-grade steel and wood composite that matches your home's
+                        aesthetic.</p>
+                </div>
+                <div class="card reveal delay-4" style="position:relative;overflow:hidden;">
+                    <div class="card-icon">✨</div>
+                    <h3>Restoration</h3>
+                    <p>Full cleanup and sanitation of impacted areas, returning your home to its healthy, pristine
+                        state.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ③ FEATURE FOCUS: PROPERTY SHIELD -->
+    <section style="background:var(--bg);padding:8rem 0;overflow:hidden;">
+        <div class="container">
+            <div class="property-shield-grid"
+                style="display:grid;grid-template-columns:1.2fr 1fr;gap:6rem;align-items:center;">
+                <div class="reveal-left">
+                    <span class="section-label">Property Shield™</span>
+                    <h2 style="margin-bottom:2rem;">Invisible Protection.<br>Indestructible Barrier.</h2>
+                    <div class="feature-point">
+                        <div class="feature-point-icon">✓</div>
+                        <div>
+                            <h4>Chew-Proof Components</h4>
+                            <p>We use galvanized steel mesh that rodents cannot penetrate, guaranteed.</p>
+                        </div>
+                    </div>
+                    <div class="feature-point">
+                        <div class="feature-point-icon">✓</div>
+                        <div>
+                            <h4>Aesthetic Integration</h4>
+                            <p>Our solutions are designed to be invisible, matching your home's architecture.</p>
+                        </div>
+                    </div>
+                    <div class="feature-point">
+                        <div class="feature-point-icon">✓</div>
+                        <div>
+                            <h4>Biological Neutralization</h4>
+                            <p>We use enzyme-based cleaners to remove pheromone trails that attract new wildlife.</p>
+                        </div>
+                    </div>
+                    <a href="services.html" class="btn-primary" style="margin-top:1.5rem;">Explore Our Materials</a>
+                </div>
+
+                <div class="reveal-right" style="position:relative;">
+                    <div
+                        style="background:var(--bg-card);border-radius:var(--radius-lg);padding:1rem;box-shadow:var(--shadow-lg);">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
+                            class="property-shield-img"
+                            style="width:100%;height:540px;object-fit:cover;border-radius:var(--radius);"
+                            alt="Home Protection" />
+                    </div>
+                    <!-- Decorative Elements -->
+                    <div class="glass property-shield-badge"
+                        style="position:absolute;top:-30px;right:-30px;padding:1.5rem;border-radius:var(--radius);max-width:200px;">
+                        <div style="color:var(--primary);font-weight:700;font-size:1.5rem;">100%</div>
+                        <div style="font-size:0.8rem;">Failure-Proof Sealing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ④ IMPACT METRICS -->
+    <section style="background:linear-gradient(135deg, var(--primary-dark), #16240d);padding:6rem 0;">
+        <div class="container">
+            <div class="grid-4" style="text-align:center;color:#fff;">
+                <div class="reveal delay-1">
+                    <div style="font-size:3.5rem;font-family:var(--font-display);font-weight:700;margin-bottom:0.5rem;"
+                        class="text-gradient" data-count="3200">3200+</div>
+                    <div style="text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;opacity:0.6;">Sanctuaries
+                        Secured</div>
+                </div>
+                <div class="reveal delay-2">
+                    <div style="font-size:3.5rem;font-family:var(--font-display);font-weight:700;margin-bottom:0.5rem;"
+                        class="text-gradient">0%</div>
+                    <div style="text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;opacity:0.6;">Animal Harm
+                        Policy</div>
+                </div>
+                <div class="reveal delay-3">
+                    <div style="font-size:3.5rem;font-family:var(--font-display);font-weight:700;margin-bottom:0.5rem;"
+                        class="text-gradient">2Hr</div>
+                    <div style="text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;opacity:0.6;">Average
+                        Response Time</div>
+                </div>
+                <div class="reveal delay-4">
+                    <div style="font-size:3.5rem;font-family:var(--font-display);font-weight:700;margin-bottom:0.5rem;"
+                        class="text-gradient">15Y</div>
+                    <div style="text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;opacity:0.6;">Industry
+                        Leadership</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑤ THE HUMANE GALLERY -->
+    <section style="background:var(--bg-2);padding:8rem 0;">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:4rem;" class="reveal">
+                <span class="section-label">Field Excellence</span>
+                <h2>Success in the Wild</h2>
+            </div>
+
+            <div class="gallery-grid"
+                style="display:grid;grid-template-columns:repeat(6, 1fr);grid-template-rows:repeat(2, 240px);gap:1.5rem;">
+                <div class="reveal delay-1 gallery-grid-item"
+                    style="grid-column: span 3; grid-row: span 2; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md);">
+                    <img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=800&q=80"
+                        style="width:100%;height:100%;object-fit:cover;" alt="Fox" />
+                </div>
+                <div class="reveal delay-2 gallery-grid-item"
+                    style="grid-column: span 3; grid-row: span 1; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md);">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+                        style="width:100%;height:100%;object-fit:cover;" alt="Landscape" />
+                </div>
+                <div class="reveal delay-3 gallery-grid-item"
+                    style="grid-column: span 1; grid-row: span 1; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md);">
+                    <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=400&q=80"
+                        style="width:100%;height:100%;object-fit:cover;" alt="Hawk" />
+                </div>
+                <div class="reveal delay-4 gallery-grid-item"
+                    style="grid-column: span 2; grid-row: span 1; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md);">
+                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80"
+                        style="width:100%;height:100%;object-fit:cover;" alt="Nature" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑥ ELITE CTA -->
+    <section style="background:var(--bg);padding:8rem 0;">
+        <div class="container">
+            <div class="glass reveal"
+                style="padding:5rem;border-radius:var(--radius-lg);text-align:center;overflow:hidden;position:relative;background:var(--bg-2);">
+                <div
+                    style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1200&q=30') center/cover;opacity:0.1;">
+                </div>
+                <div style="position:relative;z-index:2;">
+                    <h2 style="color:var(--text);margin-bottom:1.5rem;">Take the Lead in Home Protection</h2>
+                    <p style="color:var(--text-muted);max-width:580px;margin:0 auto 3rem;">Join 3,200+ homeowners
+                        who have secured their property the right way. No cruelty, no compromises.</p>
+                    <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
+                        <a href="contact.html" class="btn-primary"
+                            style="padding:1rem 3rem;background:var(--secondary);border-color:var(--secondary);">Book My
+                            Survey</a>
+                        <a href="pricing.html" class="btn-secondary"
+                            style="padding:1rem 3rem;color:var(--text);border-color:var(--border);">View Plans</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color:#fff;"><span class="logo-mark"><svg
+                                viewBox="0 0 24 24">
+                                <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
+                            </svg></span>Humane</a>
+                    <p>Ethical wildlife removal and restoration. Certified Biology Specialists based in Portland, OR.
+                    </p>
+                </div>
+                <div>
+                    <h4>Expertise</h4>
+                    <ul>
+                        <li><a href="services.html">Exclusion</a></li>
+                        <li><a href="services.html">Inspection</a></li>
+                        <li><a href="services.html">Restoration</a></li>
+                        <li><a href="services.html">Reports</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Corporate</h4>
+                    <ul>
+                        <li><a href="about.html">Our Identity</a></li>
+                        <li><a href="pricing.html">Investment</a></li>
+                        <li><a href="contact.html">Connect</a></li>
+                        <li><a href="#">Join Team</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link fb"><svg viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="social-link ig"><svg viewBox="0 0 24 24">
+                                <rect x="2" y="2" width="20" height="20" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Humane — Premium Wildlife Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop"><svg viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15" />
+        </svg></button>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
