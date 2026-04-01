@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Humane Wildlife Solutions</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/OrbitControls.js"></script>
+
+    <style>
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .manifesto {
+            padding: 12rem 0;
+            text-align: center;
+            background: var(--bg-2);
+            color: var(--text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .manifesto h2 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 3rem;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .manifesto-glass {
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 900px;
+            padding: 6rem 4rem;
+            border-radius: 48px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .manifesto-glass {
+                padding: 4rem 2rem;
+                border-radius: 32px;
+            }
+        }
+
+        /* THREE.JS HERO STYLES */
+        .three-hero-section {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background: #000;
+            overflow: hidden;
+        }
+
+        #three-container {
+            width: 100%;
+            height: 100%;
+            cursor: move;
+        }
+
+        .three-hero-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            pointer-events: none;
+            width: 90%;
+        }
+
+        #instructions {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.5);
+            bottom: 2rem;
+            width: 100%;
+            text-align: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            pointer-events: none;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            z-index: 20;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            pointer-events: auto;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @media (max-width: 900px) {
+            section {
+                padding: 6rem 0 !important;
+            }
+
+            .three-hero-section {
+                height: 80vh !important;
+            }
+
+            .three-hero-overlay h1 {
+                font-size: 2.5rem !important;
+            }
+
+            .three-hero-overlay p {
+                font-size: 1rem !important;
+                padding: 0 1rem;
+            }
+
+            /* Force all grid layouts to stack vertically on mobile */
+            div[style*="display:grid"] {
+                grid-template-columns: 1fr !important;
+                gap: 4rem !important;
+                text-align: center !important;
+            }
+
+            .reveal-left,
+            .reveal-right {
+                text-align: center !important;
+            }
+
+            .reveal-left img {
+                height: 400px !important;
+                border-radius: 24px !important;
+            }
+
+            .reveal-left .glass {
+                position: relative !important;
+                left: 0 !important;
+                bottom: 1rem !important;
+                width: 90% !important;
+                margin: 0 auto !important;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+                gap: 3rem !important;
+            }
+
+            .footer-brand {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body style="background: var(--bg);">
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-mark"><svg viewBox="0 0 24 24">
+                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
+                    </svg></span>
+                Humane
+            </a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="home2.html">Premium</a>
+                <a href="services.html">Services</a>
+                <a href="about.html" class="active">About</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html" class="nav-dashboard">Dashboard</a>
+            </nav>
+            <div class="header-controls">
+                <button class="icon-btn" data-theme-toggle title="Theme"><svg viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg></button>
+                <button class="icon-btn" data-rtl-toggle title="RTL"><svg viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none">
+                        <path d="M21 10H7M21 6H7M21 14H3M21 18H3" />
+                    </svg></button>
+                <a href="login.html" class="btn-secondary" style="padding:0.55rem 1.25rem;font-size:0.875rem;">Login</a>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="overlay" id="overlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24">
+                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
+                    </svg></span>Humane</a>
+            <button class="mobile-nav-close icon-btn" id="mobileNavClose"><svg viewBox="0 0 24 24" width="18"
+                    height="18" stroke="currentColor" fill="none" stroke-width="2">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                </svg></button>
+        </div>
+        <a href="index.html">Home</a>
+        <a href="home2.html">Premium</a>
+        <a href="services.html">Services</a>
+        <a href="about.html" class="active">About</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="dashboard.html" class="nav-dashboard">Dashboard</a>
+    </nav>
+
+    <section class="three-hero-section">
+        <div id="three-container"></div>
+        <div class="three-hero-overlay">
+            <span class="section-label"
+                style="color:#FF1919;border-color:rgba(255,25,25,0.4);background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);padding:0.4rem 1.2rem;">Scientific
+                Legacy</span>
+            <h1
+                style="color:#fff;margin:1.5rem 0;font-size:clamp(2.5rem, 8vw, 4.5rem);text-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                Biological <span style="color:#FF1919;">Precision.</span></h1>
+            <p style="color:rgba(255,255,255,0.8);max-width:600px;margin:0 auto;font-weight:500;">Protecting the
+                boundary between domestic comfort and the relentless wild since 2009.</p>
+        </div>
+        <div id="instructions">Drag to explore the transition</div>
+        <div class="scroll-down" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
+            <span>Scroll</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+            </svg>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section style="background:var(--bg);padding:8rem 0;">
+        <div class="container">
+            <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:center;">
+                <div class="reveal-left">
+                    <div style="position:relative;">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80"
+                            style="width:100%;height:600px;object-fit:cover;border-radius:40px;box-shadow:var(--shadow-lg);filter:grayscale(1) brightness(0.9);opacity:0.9;" />
+                        <div class="glass"
+                            style="position:absolute;bottom:2rem;left:-2rem;padding:2rem;border-radius:24px;width:240px;box-shadow:var(--shadow-lg);background:#FF1919;color:#fff;border:none;">
+                            <div style="font-weight:700;font-size:2rem;">15+ Years</div>
+                            <div style="font-size:0.85rem;margin-top:0.4rem;opacity:0.9;">of relentless biological
+                                research and technological exclusion.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-right">
+                    <span class="section-label" style="color:#FF1919;">Since 2009</span>
+                    <h2 style="margin-bottom:2rem;line-height:1;color:var(--text);">Dominance Over Intrusion.<br>Safety
+                        For All.</h2>
+                    <p style="margin-bottom:1.5rem;font-size:1.15rem;color:var(--text);line-height:1.8;">Established by
+                        Dr. Elena Marsh, Humane redefined the industry by applying extreme structural engineering to
+                        complex animal behavior.</p>
+                    <p style="margin-bottom:1.5rem;color:var(--text-muted);font-size:1.1rem;">We don't "trap" or "kill."
+                        We engineer your property to be a perfect, impenetrable biological shield. Our "Power Exclusion"
+                        model is the pinnacle of modern property defense.</p>
+                    <p style="margin-bottom:3rem;color:var(--text-muted);font-size:1.1rem;">"Wildlife belongs in the
+                        forest; your home belongs to you. We ensure that line is never crossed."</p>
+                    <div style="display:flex;gap:1.5rem;"><a href="services.html" class="btn-primary">View Defense
+                            Methods</a><a href="contact.html" class="btn-secondary"
+                            style="border-color:#FF1919;color:var(--text);background:transparent;">Command Desk</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="manifesto">
+        <div
+            style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=20') center/cover;opacity:0.1;filter:grayscale(1) brightness(0.8);">
+        </div>
+        <div class="container animate-float" style="position:relative;z-index:3;">
+            <div class="manifesto-glass reveal" style="background:var(--bg-card);border:1px solid var(--border);">
+                <span class="section-label"
+                    style="color:#FF1919;border-color:rgba(255,25,25,0.2);margin-bottom:2rem;">The Command
+                    Manifesto</span>
+                <h2 style="font-family:var(--font-display);color:var(--text);">"Protect the Sanctuary. Master the
+                    Environment. Harmony through Strength."</h2>
+                <p style="color:var(--text-muted);max-width:580px;margin:0 auto;line-height:2;">We operate at the
+                    intersection of raw nature and advanced physics. Every property we touch is a tactical success in a
+                    cleaner, safer world.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="background:var(--bg-2);padding:10rem 0;">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:6rem;" class="reveal">
+                <span class="section-label" style="color:#FF1919;">Elite High Command</span>
+                <h2 style="color:var(--text);">Specialized Operatives</h2>
+            </div>
+            <div class="grid-3" style="gap:3rem;">
+                <div class="card reveal delay-1" style="padding:0;overflow:hidden;border:none;background:transparent;">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=80"
+                        style="width:100%;height:400px;object-fit:cover;border-radius:24px;margin-bottom:2rem;filter:grayscale(1);" />
+                    <h4 style="margin-bottom:0.5rem;font-size:1.5rem;color:var(--text);">Dr. Elena Marsh</h4>
+                    <p
+                        style="color:#FF1919;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;margin-bottom:1rem;">
+                        Founder • Chief Strategist</p>
+                    <p style="font-size:0.95rem;color:var(--text-muted);">Architect of the Power Exclusion model. Expert
+                        in adversarial animal behavior.</p>
+                </div>
+                <div class="card reveal delay-2" style="padding:0;overflow:hidden;border:none;background:transparent;">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&q=80"
+                        style="width:100%;height:400px;object-fit:cover;border-radius:24px;margin-bottom:2rem;filter:grayscale(1);" />
+                    <h4 style="margin-bottom:0.5rem;font-size:1.5rem;color:var(--text);">Marcus Reed</h4>
+                    <p
+                        style="color:#FF1919;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;margin-bottom:1rem;">
+                        Structural Defense Lead</p>
+                    <p style="font-size:0.95rem;color:var(--text-muted);">Master Engineer. Designs the custom
+                        carbon-steel barriers that shield your peak.</p>
+                </div>
+                <div class="card reveal delay-3" style="padding:0;overflow:hidden;border:none;background:transparent;">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80"
+                        style="width:100%;height:400px;object-fit:cover;border-radius:24px;margin-bottom:2rem;filter:grayscale(1);" />
+                    <h4 style="margin-bottom:0.5rem;font-size:1.5rem;color:var(--text);">Tara Linden</h4>
+                    <p
+                        style="color:#FF1919;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;margin-bottom:1rem;">
+                        Lead Tech • High Peak Operative</p>
+                    <p style="font-size:0.95rem;color:var(--text-muted);">Specialist in vertical exclusion and nocturnal
+                        species management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color:#fff;"><span class="logo-mark"><svg
+                                viewBox="0 0 24 24">
+                                <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
+                            </svg></span>Humane</a>
+                    <p>Ethical wildlife removal and restoration. Certified Biology Specialists based in Portland, OR.
+                    </p>
+                </div>
+                <div>
+                    <h4>Expertise</h4>
+                    <ul>
+                        <li><a href="services.html">Exclusion</a></li>
+                        <li><a href="services.html">Inspection</a></li>
+                        <li><a href="services.html">Restoration</a></li>
+                        <li><a href="services.html">Reports</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Corporate</h4>
+                    <ul>
+                        <li><a href="about.html">Our Identity</a></li>
+                        <li><a href="pricing.html">Investment</a></li>
+                        <li><a href="contact.html">Connect</a></li>
+                        <li><a href="#">Join Team</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link fb"><svg viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="social-link ig"><svg viewBox="0 0 24 24">
+                                <rect x="2" y="2" width="20" height="20" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Humane — Premium Wildlife Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        window.addEventListener('load', initThreeHero);
+
+        function initThreeHero() {
+            var container = document.getElementById('three-container');
+            if (!container) return;
+
+            var root = new THREERoot({
+                createCameraControls: false,
+                antialias: true,
+                fov: 80
+            });
+
+            root.renderer.setClearColor(0x000000, 0);
+            root.renderer.setPixelRatio(window.devicePixelRatio || 1);
+            root.camera.position.set(0, 0, 50);
+
+            var width = 120;
+            var height = 75;
+
+            var slide = new Slide(width, height, 'out');
+            var slide2 = new Slide(width, height, 'in');
+
+            var l1 = new THREE.ImageLoader();
+            var l2 = new THREE.ImageLoader();
+            l1.setCrossOrigin('Anonymous');
+            l2.setCrossOrigin('Anonymous');
+
+            var loadedCount = 0;
+            function checkLoaded() {
+                loadedCount++;
+                if (loadedCount === 2) {
+                    root.scene.add(slide);
+                    root.scene.add(slide2);
+                    var tl = new TimelineMax({ repeat: -1, repeatDelay: 2.0, yoyo: true });
+                    tl.add(slide.transition(), 0);
+                    tl.add(slide2.transition(), 0);
+                    createTweenScrubber(tl);
+                }
+            }
+
+            l1.load('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=1200&q=80', function (img) {
+                slide.setImage(img);
+                checkLoaded();
+            });
+            l2.load('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80', function (img) {
+                slide2.setImage(img);
+                checkLoaded();
+            });
+        }
+
+        function Slide(width, height, animationPhase) {
+            var plane = new THREE.PlaneGeometry(width, height, width * 2, height * 2);
+            THREE.BAS.Utils.separateFaces(plane);
+            var geometry = new SlideGeometry(plane);
+            geometry.bufferUVs();
+
+            var aAnimation = geometry.createAttribute('aAnimation', 2);
+            var aStartPosition = geometry.createAttribute('aStartPosition', 3);
+            var aControl0 = geometry.createAttribute('aControl0', 3);
+            var aControl1 = geometry.createAttribute('aControl1', 3);
+            var aEndPosition = geometry.createAttribute('aEndPosition', 3);
+
+            var minDuration = 0.8;
+            var maxDuration = 1.2;
+            var maxDelayX = 0.9;
+            var maxDelayY = 0.125;
+            var stretch = 0.11;
+
+            this.totalDuration = maxDuration + maxDelayX + maxDelayY + stretch;
+
+            var tempPoint = new THREE.Vector3();
+
+            function getControlPoint0(centroid) {
+                var signY = Math.sign(centroid.y);
+                tempPoint.x = THREE.Math.randFloat(0.1, 0.3) * 50;
+                tempPoint.y = signY * THREE.Math.randFloat(0.1, 0.3) * 70;
+                tempPoint.z = THREE.Math.randFloatSpread(20);
+                return tempPoint;
+            }
+
+            function getControlPoint1(centroid) {
+                var signY = Math.sign(centroid.y);
+                tempPoint.x = THREE.Math.randFloat(0.3, 0.6) * 50;
+                tempPoint.y = -signY * THREE.Math.randFloat(0.3, 0.6) * 70;
+                tempPoint.z = THREE.Math.randFloatSpread(20);
+                return tempPoint;
+            }
+
+            for (var i = 0, i2 = 0, i3 = 0; i < geometry.faceCount; i++, i2 += 6, i3 += 9) {
+                var face = plane.faces[i];
+                var centroid = THREE.BAS.Utils.computeCentroid(plane, face);
+                var duration = THREE.Math.randFloat(minDuration, maxDuration);
+                var delayX = THREE.Math.mapLinear(centroid.x, -width * 0.5, width * 0.5, 0.0, maxDelayX);
+                var delayY = (animationPhase === 'in' ? THREE.Math.mapLinear(Math.abs(centroid.y), 0, height * 0.5, 0.0, maxDelayY) : THREE.Math.mapLinear(Math.abs(centroid.y), 0, height * 0.5, maxDelayY, 0.0));
+
+                for (var v = 0; v < 6; v += 2) {
+                    aAnimation.array[i2 + v] = delayX + delayY + (Math.random() * stretch * duration);
+                    aAnimation.array[i2 + v + 1] = duration;
+                }
+
+                var control0 = new THREE.Vector3();
+                var control1 = new THREE.Vector3();
+                if (animationPhase === 'in') {
+                    control0.copy(centroid).sub(getControlPoint0(centroid));
+                    control1.copy(centroid).sub(getControlPoint1(centroid));
+                } else {
+                    control0.copy(centroid).add(getControlPoint0(centroid));
+                    control1.copy(centroid).add(getControlPoint1(centroid));
+                }
+
+                for (var v = 0; v < 9; v += 3) {
+                    aStartPosition.array[i3 + v] = centroid.x;
+                    aStartPosition.array[i3 + v + 1] = centroid.y;
+                    aStartPosition.array[i3 + v + 2] = centroid.z;
+
+                    aControl0.array[i3 + v] = control0.x;
+                    aControl0.array[i3 + v + 1] = control0.y;
+                    aControl0.array[i3 + v + 2] = control0.z;
+
+                    aControl1.array[i3 + v] = control1.x;
+                    aControl1.array[i3 + v + 1] = control1.y;
+                    aControl1.array[i3 + v + 2] = control1.z;
+
+                    aEndPosition.array[i3 + v] = centroid.x;
+                    aEndPosition.array[i3 + v + 1] = centroid.y;
+                    aEndPosition.array[i3 + v + 2] = centroid.z;
+                }
+            }
+
+            var material = new THREE.BAS.BasicAnimationMaterial({
+                shading: THREE.FlatShading,
+                side: THREE.DoubleSide,
+                uniforms: { uTime: { type: 'f', value: 0 } },
+                shaderFunctions: [
+                    THREE.BAS.ShaderChunk['cubic_bezier'],
+                    THREE.BAS.ShaderChunk['ease_in_out_cubic'],
+                    THREE.BAS.ShaderChunk['quaternion_rotation']
+                ],
+                shaderParameters: [
+                    'uniform float uTime;',
+                    'attribute vec2 aAnimation;',
+                    'attribute vec3 aStartPosition;',
+                    'attribute vec3 aControl0;',
+                    'attribute vec3 aControl1;',
+                    'attribute vec3 aEndPosition;',
+                ],
+                shaderVertexInit: [
+                    'float tDelay = aAnimation.x;',
+                    'float tDuration = aAnimation.y;',
+                    'float tTime = clamp(uTime - tDelay, 0.0, tDuration);',
+                    'float tProgress = ease(tTime, 0.0, 1.0, tDuration);'
+                ],
+                shaderTransformPosition: [
+                    (animationPhase === 'in' ? 'transformed *= tProgress;' : 'transformed *= 1.0 - tProgress;'),
+                    'transformed += cubicBezier(aStartPosition, aControl0, aControl1, aEndPosition, tProgress);'
+                ]
+            }, { map: new THREE.Texture() });
+
+            THREE.Mesh.call(this, geometry, material);
+            this.frustumCulled = false;
+        }
+        Slide.prototype = Object.create(THREE.Mesh.prototype);
+        Slide.prototype.constructor = Slide;
+        Object.defineProperty(Slide.prototype, 'time', {
+            get: function () { return this.material.uniforms['uTime'].value; },
+            set: function (v) { this.material.uniforms['uTime'].value = v; }
+        });
+        Slide.prototype.setImage = function (image) {
+            this.material.uniforms.map.value.image = image;
+            this.material.uniforms.map.value.needsUpdate = true;
+        };
+        Slide.prototype.transition = function () {
+            return TweenMax.fromTo(this, 3.0, { time: 0.0 }, { time: this.totalDuration, ease: Power0.easeInOut });
+        };
+
+        function SlideGeometry(model) { THREE.BAS.ModelBufferGeometry.call(this, model); }
+        SlideGeometry.prototype = Object.create(THREE.BAS.ModelBufferGeometry.prototype);
+        SlideGeometry.prototype.constructor = SlideGeometry;
+        SlideGeometry.prototype.bufferPositions = function () {
+            var positionBuffer = this.createAttribute('position', 3).array;
+            for (var i = 0; i < this.faceCount; i++) {
+                var face = this.modelGeometry.faces[i];
+                var centroid = THREE.BAS.Utils.computeCentroid(this.modelGeometry, face);
+                var a = this.modelGeometry.vertices[face.a], b = this.modelGeometry.vertices[face.b], c = this.modelGeometry.vertices[face.c];
+                positionBuffer[face.a * 3] = a.x - centroid.x; positionBuffer[face.a * 3 + 1] = a.y - centroid.y; positionBuffer[face.a * 3 + 2] = a.z - centroid.z;
+                positionBuffer[face.b * 3] = b.x - centroid.x; positionBuffer[face.b * 3 + 1] = b.y - centroid.y; positionBuffer[face.b * 3 + 2] = b.z - centroid.z;
+                positionBuffer[face.c * 3] = c.x - centroid.x; positionBuffer[face.c * 3 + 1] = c.y - centroid.y; positionBuffer[face.c * 3 + 2] = c.z - centroid.z;
+            }
+        };
+
+        function THREERoot(params) {
+            params = utils.extend({ fov: 60, zNear: 1, zFar: 10000, createCameraControls: true }, params);
+            var container = document.getElementById('three-container');
+            this.renderer = new THREE.WebGLRenderer({ antialias: params.antialias, alpha: true });
+            this.renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+            container.appendChild(this.renderer.domElement);
+            this.camera = new THREE.PerspectiveCamera(params.fov, container.offsetWidth / container.offsetHeight, params.zNear, params.zFar);
+            this.scene = new THREE.Scene();
+            // Removed OrbitControls to prevent scroll hijacking
+            this.resize = this.resize.bind(this);
+            this.tick = this.tick.bind(this);
+            this.resize();
+            this.tick();
+            window.addEventListener('resize', this.resize, false);
+        }
+        THREERoot.prototype = {
+            tick: function () { this.update(); this.render(); requestAnimationFrame(this.tick); },
+            update: function () { this.controls && this.controls.update(); },
+            render: function () { this.renderer.render(this.scene, this.camera); },
+            resize: function () {
+                var container = document.getElementById('three-container');
+                this.camera.aspect = container.offsetWidth / container.offsetHeight;
+                this.camera.updateProjectionMatrix();
+                this.renderer.setSize(container.offsetWidth, container.offsetHeight);
+            }
+        };
+
+        var utils = {
+            extend: function (dst, src) { for (var key in src) { dst[key] = src[key]; } return dst; },
+            ease: function (ease, t, b, c, d) { return b + ease.getRatio(t / d) * c; }
+        };
+
+        function createTweenScrubber(tween, seekSpeed) {
+            seekSpeed = seekSpeed || 0.001;
+            var container = document.getElementById('three-container');
+            if (!container) return;
+
+            function stop() { TweenMax.to(tween, 1, { timeScale: 0 }); }
+            function resume() { TweenMax.to(tween, 1, { timeScale: 1 }); }
+            function seek(dx) { var progress = tween.progress(); var p = THREE.Math.clamp((progress + (dx * seekSpeed)), 0, 1); tween.progress(p); }
+            var _cx = 0, mouseDown = false;
+
+            container.addEventListener('mousedown', function (e) { mouseDown = true; _cx = e.clientX; stop(); });
+            window.addEventListener('mouseup', function (e) { mouseDown = false; resume(); });
+            window.addEventListener('mousemove', function (e) { if (mouseDown === true) { var cx = e.clientX; var dx = cx - _cx; _cx = cx; seek(dx); } });
+
+            // Mobile touch
+            container.addEventListener('touchstart', function (e) { _cx = e.touches[0].clientX; stop(); }, { passive: true });
+            window.addEventListener('touchend', function (e) { resume(); }, { passive: true });
+            container.addEventListener('touchmove', function (e) {
+                var cx = e.touches[0].clientX;
+                var dx = cx - _cx;
+                _cx = cx;
+                seek(dx);
+            }, { passive: true });
+        }
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

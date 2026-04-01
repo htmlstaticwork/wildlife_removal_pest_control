@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — Humane Operative Portal</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        .sidebar-toggle {
+            display: none;
+            margin-right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dash-text);
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            .sidebar-toggle {
+                display: block;
+            }
+        }
+
+        .glass {
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-wrapper">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <a href="index.html" class="sidebar-logo">
+                <span class="logo-mark"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff">
+                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
+                    </svg></span>
+                Humane
+            </a>
+
+            <div class="nav-group">
+                <div class="nav-label">Command Center</div>
+                <a href="#" class="nav-link active" data-view="overview"><span>📊</span> Intelligence Overview</a>
+            </div>
+
+            <div class="nav-group">
+                <div class="nav-label">Tactical Support</div>
+                <a href="#" class="nav-link" data-view="barriers"><span>🛡️</span> Active Barriers</a>
+                <a href="#" class="nav-link" data-view="alerts"><span>🛑</span> Perimeter Alert</a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div style="display:flex; gap:0.75rem; margin-bottom:1.5rem; padding:0 0.5rem;">
+                    <button class="icon-btn" data-theme-toggle title="Toggle Theme"
+                        style="flex:1; background:var(--dash-card); border:1px solid var(--dash-border); padding:0.75rem; border-radius:12px; cursor:pointer; color:var(--dash-text); display:flex; align-items:center; justify-content:center; transition:0.3s;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                    </button>
+                    <button class="icon-btn" data-rtl-toggle title="Toggle RTL"
+                        style="flex:1; background:var(--dash-card); border:1px solid var(--dash-border); padding:0.75rem; border-radius:12px; cursor:pointer; color:var(--dash-text); display:flex; align-items:center; justify-content:center; transition:0.3s;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 10H7M21 6H7M21 14H3M21 18H3" />
+                        </svg>
+                    </button>
+                </div>
+                <a href="index.html" class="nav-link"
+                    style="color:#FF1919; font-weight:700; border:1px solid rgba(255,25,25,0.1); background:rgba(255,25,25,0.05); justify-content:center; margin-top:0.5rem;">
+                    <span>🚪</span> Terminate Session
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-content">
+            <div class="topbar">
+                <div style="display:flex;align-items:center;">
+                    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+                    <div class="page-title">
+                        <h2>Operative Overview</h2>
+                        <p>Station: Sector 7 — Portland Core — Status: <span style="color:var(--success);">Online</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="topbar-actions">
+                    <div class="notification-btn"><span class="notif-badge"></span><span>🔔</span></div>
+                    <div class="user-profile">
+                        <span style="font-weight:700;font-size:0.9rem;">Op. Jane Doe</span>
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Avatar"
+                            class="user-avatar" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- OVERVIEW VIEW -->
+            <div id="view-overview" class="dashboard-view">
+                <!-- METRICS -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon" style="color:var(--success);">📡</div>
+                        <div class="metric-value">Active</div>
+                        <div class="metric-label">Signal Status</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon" style="color:#FF1919;">🛑</div>
+                        <div class="metric-value">02</div>
+                        <div class="metric-label">Breach Alerts</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon" style="color:var(--warning);">🛡️</div>
+                        <div class="metric-value">14</div>
+                        <div class="metric-label">Barriers Monitoring</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon" style="color:#1e90ff;">📋</div>
+                        <div class="metric-value">08</div>
+                        <div class="metric-label">Quiscent Points</div>
+                    </div>
+                </div>
+
+                <!-- MAIN GRID 2 -->
+                <div class="dashboard-main-grid">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h3>Active Structural Protocols</h3><button class="btn-dash"
+                                style="padding:0.5rem 1.25rem;">New
+                                Defense Run</button>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Target Species</th>
+                                    <th>Protocol Status</th>
+                                    <th>Last Signal</th>
+                                    <th>Operational Node</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Chiropteran (Bats)</td>
+                                    <td><span class="status status-active">Shielded</span></td>
+                                    <td>12:45:00 UTC</td>
+                                    <td>North Peak Ridge</td>
+                                </tr>
+                                <tr>
+                                    <td>Procyonid (Raccoons)</td>
+                                    <td><span class="status status-alert">In Breach</span></td>
+                                    <td>02:15:30 UTC</td>
+                                    <td>East Dormer 02</td>
+                                </tr>
+                                <tr>
+                                    <td>Rodent (Mice)</td>
+                                    <td><span class="status status-pending">Excluding</span></td>
+                                    <td>Just Now</td>
+                                    <td>Basement Core</td>
+                                </tr>
+                                <tr>
+                                    <td>Avian (Birds)</td>
+                                    <td><span class="status status-active">Neutralized</span></td>
+                                    <td>Yesterday</td>
+                                    <td>West Soffit A-4</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-container" style="padding:2rem;">
+                        <div class="table-header">
+                            <h3>Rapid Sighting Log</h3>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+                            <div class="glass"
+                                style="padding:1rem;border-radius:12px;background:rgba(255, 25, 25, 0.05);border:1px solid rgba(255, 25, 25, 0.1);">
+                                <div
+                                    style="font-size:0.7rem;text-transform:uppercase;color:#FF1919;font-weight:700;margin-bottom:0.5rem;">
+                                    03:14:00 AM — Alert</div>
+                                <p style="font-size:0.85rem;margin:0;color:var(--dash-text);">Thermal signature detected
+                                    at
+                                    Dormer 02.</p>
+                            </div>
+                            <div class="glass"
+                                style="padding:1rem;border-radius:12px;background:rgba(0, 0, 0, 0.02);border:1px solid var(--dash-border);">
+                                <div
+                                    style="font-size:0.7rem;text-transform:uppercase;color:var(--dash-text-muted);font-weight:700;margin-bottom:0.5rem;">
+                                    YESTERDAY — Update</div>
+                                <p style="font-size:0.85rem;margin:0;color:var(--dash-text);">Vent sealant cure complete
+                                    at
+                                    North Peak.</p>
+                            </div>
+                            <div class="glass"
+                                style="padding:1rem;border-radius:12px;background:rgba(0, 0, 0, 0.02);border:1px solid var(--dash-border);">
+                                <div
+                                    style="font-size:0.7rem;text-transform:uppercase;color:var(--dash-text-muted);font-weight:700;margin-bottom:0.5rem;">
+                                    2 DAYS AGO — Update</div>
+                                <p style="font-size:0.85rem;margin:0;color:var(--dash-text);">Primary exclusion valves
+                                    deployed in attic sector B.</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-dash"
+                            style="width:100%;margin-top:2rem;justify-content:center;background:rgba(0,0,0,0.05);color:var(--dash-text);border:1px solid var(--dash-border);">View
+                            Full Intel Log</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BARRIERS VIEW -->
+            <div id="view-barriers" class="dashboard-view" style="display:none;">
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3>Structural Defense Nodes</h3>
+                        <button class="btn-dash">Scan All Barriers</button>
+                    </div>
+                    <p style="margin-bottom:2rem;color:var(--dash-text-muted);">Real-time integrity monitoring of
+                        carbon-steel exclusion zones.</p>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:2rem;">
+                        <div class="metric-card">
+                            <div style="font-weight:700;margin-bottom:1rem;">Node PNW-01</div>
+                            <div style="font-size:0.85rem;color:var(--dash-text-muted);">Status: <span
+                                    style="color:var(--success);">Inert</span></div>
+                        </div>
+                        <div class="metric-card">
+                            <div style="font-weight:700;margin-bottom:1rem;">Node PNW-07</div>
+                            <div style="font-size:0.85rem;color:var(--dash-text-muted);">Status: <span
+                                    style="color:var(--success);">Inert</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ALERTS VIEW -->
+            <div id="view-alerts" class="dashboard-view" style="display:none;">
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3>Perimeter Breach Log</h3>
+                        <button class="btn-dash" style="background:var(--warning);">Clear All Alerts</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Type</th>
+                                <th>Location</th>
+                                <th>Severity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>03:14 AM</td>
+                                <td>Thermal Spike</td>
+                                <td>Dormer 02</td>
+                                <td><span class="status status-alert">High</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggle = document.getElementById('sidebarToggle');
+        toggle.addEventListener('click', () => { sidebar.classList.toggle('active'); });
+
+        // View Switching Logic
+        const navLinks = document.querySelectorAll('.nav-link[data-view]');
+        const views = document.querySelectorAll('.dashboard-view');
+        const pageTitle = document.querySelector('.page-title h2');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const viewId = link.getAttribute('data-view');
+
+                // Update Sidebar
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
+                // Update Views
+                views.forEach(v => v.style.display = 'none');
+                const activeView = document.getElementById('view-' + viewId);
+                if (activeView) activeView.style.display = 'block';
+
+                // Update Title
+                const text = link.innerText.replace(/[^\w\s]/gi, '').trim();
+                pageTitle.innerText = text;
+
+                // Close sidebar on mobile
+                if (window.innerWidth <= 900) sidebar.classList.remove('active');
+            });
+        });
+
+        // Theme and RTL Logic
+        const themeBtn = document.querySelector('[data-theme-toggle]');
+        const rtlBtn = document.querySelector('[data-rtl-toggle]');
+
+        // Initial Theme
+        const currentTheme = localStorage.getItem('humane-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        themeBtn.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('humane-theme', newTheme);
+        });
+
+        rtlBtn.addEventListener('click', () => {
+            const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
+            const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+            document.documentElement.setAttribute('dir', newDir);
+        });
+    </script>
+</body>
+
+</html>
