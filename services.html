@@ -23,6 +23,21 @@
             box-shadow: var(--shadow-lg);
         }
 
+        .service-card-media {
+            height: 220px;
+            margin: -3rem -3rem 2rem;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .service-card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .card-id-badge {
             position: absolute;
             top: 2rem;
@@ -33,6 +48,12 @@
             color: #FF1919;
             opacity: 0.5;
             font-weight: 700;
+        }
+
+        @media (max-width: 480px) {
+            .service-card-media {
+                height: 190px;
+            }
         }
 
         /* 3D SLIDESHOW HERO STYLES */
@@ -180,10 +201,65 @@
             }
 
             .content {
+                width: 150px;
+                perspective: 800px;
                 top: 60%;
+            }
+
+            .content-carrousel figure:nth-child(1) {
+                transform: rotateY(0deg) translateZ(220px);
+            }
+
+            .content-carrousel figure:nth-child(2) {
+                transform: rotateY(40deg) translateZ(220px);
+            }
+
+            .content-carrousel figure:nth-child(3) {
+                transform: rotateY(80deg) translateZ(220px);
+            }
+
+            .content-carrousel figure:nth-child(4) {
+                transform: rotateY(120deg) translateZ(220px);
+            }
+
+            .content-carrousel figure:nth-child(5) {
+                transform: rotateY(160deg) translateZ(220px);
+            }
+
+            .content-carrousel figure:nth-child(6) {
+                transform: rotateY(200deg) translateZ(220px);
+            }
+
+            .content-carrousel figure:nth-child(7) {
+                transform: rotateY(240deg) translateZ(220px);
+            }
+
+            .content-carrousel figure:nth-child(8) {
+                transform: rotateY(280deg) translateZ(220px);
+            }
+
+            .content-carrousel figure:nth-child(9) {
+                transform: rotateY(320deg) translateZ(220px);
+            }
+
+            .visual-command-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2.5rem !important;
+                padding: 3rem 1.5rem !important;
+            }
+
+            .visual-command-image {
+                height: 360px !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .slideshow-text {
+                padding-top: 2rem;
             }
         }
     </style>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
 </head>
 
 <body style="background: var(--bg);">
@@ -192,9 +268,7 @@
     <header class="header" id="header">
         <div class="header-inner">
             <a href="index.html" class="logo">
-                <span class="logo-mark"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                    </svg></span>
+                <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>
                 Humane
             </a>
             <nav class="nav">
@@ -225,9 +299,7 @@
     <div class="overlay" id="overlay"></div>
     <nav class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-header">
-            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                    </svg></span>Humane</a>
+            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>Humane</a>
             <button class="mobile-nav-close icon-btn" id="mobileNavClose"><svg viewBox="0 0 24 24" width="18"
                     height="18" stroke="currentColor" fill="none" stroke-width="2">
                     <path d="M18 6 6 18M6 6l12 12" />
@@ -239,6 +311,7 @@
         <a href="about.html">About</a>
         <a href="pricing.html">Pricing</a>
         <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
         <a href="dashboard.html" class="nav-dashboard">Dashboard</a>
     </nav>
 
@@ -293,6 +366,10 @@
         <div class="container">
             <div class="grid-3" style="gap:2.5rem;margin-bottom:8rem;">
                 <div class="service-card-premium reveal delay-1">
+                    <div class="service-card-media">
+                        <img src="https://images.unsplash.com/photo-1516934024742-b461fba47600?w=900&q=80"
+                            alt="Bat inspection and attic shielding">
+                    </div>
                     <span class="card-id-badge">ALPHA.01</span>
                     <div style="font-size:2.5rem;margin-bottom:1.5rem;color:#FF1919;">Bat</div>
                     <h3 style="color:var(--text);">Nocturnal Shielding</h3>
@@ -300,6 +377,10 @@
                         expulsion and full peak isolation for chiropteran management.</p>
                 </div>
                 <div class="service-card-premium reveal delay-2">
+                    <div class="service-card-media">
+                        <img src="https://images.unsplash.com/photo-1520315342629-6ea920342047?w=900&q=80"
+                            alt="Raccoon exclusion defense setup">
+                    </div>
                     <span class="card-id-badge">ALPHA.02</span>
                     <div style="font-size:2.5rem;margin-bottom:1.5rem;color:#FF1919;">Rac</div>
                     <h3 style="color:var(--text);">Apex Defense</h3>
@@ -307,6 +388,10 @@
                         counter-measures and multi-point sealing strategies.</p>
                 </div>
                 <div class="service-card-premium reveal delay-3">
+                    <div class="service-card-media">
+                        <img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=900&q=80"
+                            alt="Rodent barrier and protection focus">
+                    </div>
                     <span class="card-id-badge">ALPHA.03</span>
                     <div style="font-size:2.5rem;margin-bottom:1.5rem;color:#FF1919;">Rod</div>
                     <h3 style="color:var(--text);">Rodent Barrier Core</h3>
@@ -315,7 +400,7 @@
                 </div>
             </div>
 
-            <div
+            <div class="visual-command-grid"
                 style="background:var(--bg-2);border-radius:40px;padding:6rem 4rem;display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:center;border:1px solid var(--border);">
                 <div class="reveal-left">
                     <span class="section-label" style="color:#FF1919;">Visual Command</span>
@@ -335,7 +420,7 @@
                     </div>
                 </div>
                 <div class="reveal-right">
-                    <div
+                    <div class="visual-command-image"
                         style="position:relative;height:500px;border-radius:32px;overflow:hidden;box-shadow:var(--shadow-lg);">
                         <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1000&q=80"
                             style="width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(0.9);" />
@@ -359,26 +444,26 @@
             <div class="grid-4" style="gap:1.5rem;">
                 <div class="card reveal delay-1"
                     style="text-align:left;padding:2.5rem;background:var(--bg-card);border:1px solid var(--border);">
-                    <div style="font-size:1.8rem;margin-bottom:1rem;color:#FF1919;">🛠️</div>
+                    <div style="font-size:1.8rem;margin:0 auto 1rem;color:#FF1919;width:fit-content;">🛠️</div>
                     <h4 style="color:var(--text);">Carbon Steel Mesh</h4>
                     <p style="color:var(--text-muted);">High-tensile rigid plating that stops predators instantly.</p>
                 </div>
                 <div class="card reveal delay-2"
                     style="text-align:left;padding:2.5rem;background:var(--bg-card);border:1px solid var(--border);">
-                    <div style="font-size:1.8rem;margin-bottom:1rem;color:#FF1919;">🧪</div>
+                    <div style="font-size:1.8rem;margin:0 auto 1rem;color:#FF1919;width:fit-content;">🧪</div>
                     <h4 style="color:var(--text);">Bio-Counter Solvents</h4>
                     <p style="color:var(--text-muted);">Decimates biological markers and pheromone trails upon contact.
                     </p>
                 </div>
                 <div class="card reveal delay-3"
                     style="text-align:left;padding:2.5rem;background:var(--bg-card);border:1px solid var(--border);">
-                    <div style="font-size:1.8rem;margin-bottom:1rem;color:#FF1919;">🔩</div>
+                    <div style="font-size:1.8rem;margin:0 auto 1rem;color:#FF1919;width:fit-content;">🔩</div>
                     <h4 style="color:var(--text);">Invisible Bolts</h4>
                     <p style="color:var(--text-muted);">Recessed industrial fasteners for a clean, secure finish.</p>
                 </div>
                 <div class="card reveal delay-4"
                     style="text-align:left;padding:2.5rem;background:var(--bg-card);border:1px solid var(--border);">
-                    <div style="font-size:1.8rem;margin-bottom:1rem;color:#FF1919;">🔦</div>
+                    <div style="font-size:1.8rem;margin:0 auto 1rem;color:#FF1919;width:fit-content;">🔦</div>
                     <h4 style="color:var(--text);">Infrared Auditing</h4>
                     <p style="color:var(--text-muted);">Visual identification of heat signatures through solid barriers.
                     </p>
@@ -392,10 +477,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color:#fff;"><span class="logo-mark"><svg
-                                viewBox="0 0 24 24">
-                                <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                            </svg></span>Humane</a>
+                    <a href="index.html" class="logo" style="color:#fff;"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>Humane</a>
                     <p>Ethical wildlife removal and restoration. Certified Biology Specialists based in Portland, OR.
                     </p>
                 </div>
@@ -436,6 +518,9 @@
         </div>
     </footer>
 
+    <button class="scroll-top" id="scrollTop"><svg viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15" />
+        </svg></button>
     <script src="js/main.js"></script>
 </body>
 

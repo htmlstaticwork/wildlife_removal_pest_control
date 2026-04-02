@@ -452,3 +452,42 @@ tr:last-child td {
         display: none;
     }
 }
+
+.scroll-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--dash-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(255, 25, 25, 0.25);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    z-index: 120;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    background: #ff4d4d;
+}
+
+.scroll-top svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff;
+    fill: none;
+}

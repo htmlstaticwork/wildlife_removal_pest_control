@@ -180,6 +180,7 @@
             }
         }
     </style>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
 </head>
 
 <body>
@@ -188,9 +189,7 @@
     <header class="header" id="header">
         <div class="header-inner">
             <a href="index.html" class="logo">
-                <span class="logo-mark"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                    </svg></span>
+                <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>
                 Humane
             </a>
             <nav class="nav">
@@ -221,9 +220,7 @@
     <div class="overlay" id="overlay"></div>
     <nav class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-header">
-            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                    </svg></span>Humane</a>
+            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>Humane</a>
             <button class="mobile-nav-close icon-btn" id="mobileNavClose"><svg viewBox="0 0 24 24" width="18"
                     height="18" stroke="currentColor" fill="none" stroke-width="2">
                     <path d="M18 6 6 18M6 6l12 12" />
@@ -235,6 +232,7 @@
         <a href="about.html">About</a>
         <a href="pricing.html">Pricing</a>
         <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
         <a href="dashboard.html" class="nav-dashboard">Dashboard</a>
     </nav>
 
@@ -297,7 +295,7 @@
             <div class="sentinel-visual reveal" style="perspective:1000px;">
                 <div class="floating-img-wrapper"
                     style="transform-style:preserve-3d; transition:0.3s; cursor:crosshair;">
-                    <img src="C:\Users\admin\.gemini\antigravity\brain\fa2005a3-4b04-4c9d-a8fd-84e2ec785049\tactical_thermal_drone_view_1775030601059.png"
+                    <img src="images/tactical_thermal_drone_view_1775030601059.png"
                         alt="Thermal View"
                         style="width:100%; border-radius:32px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); transform:translateZ(20px);">
                     <div
@@ -314,7 +312,7 @@
         <div class="reveal-container" style="position:sticky; top:0; height:100vh; overflow:hidden;">
             <div class="reveal-inner"
                 style="position:absolute; inset:0; clip-path: circle(20% at 50% 50%); transition: clip-path 0.1s linear;">
-                <img src="C:\Users\admin\.gemini\antigravity\brain\fa2005a3-4b04-4c9d-a8fd-84e2ec785049\modern_eco_architecture_humane_1775030622481.png"
+                <img src="images/modern_eco_architecture_humane_1775030622481.png"
                     alt="Eco Architecture" style="width:100%; height:100%; object-fit:cover;">
             </div>
             <div class="reveal-text container"
@@ -369,7 +367,7 @@
                     <div
                         style="position:absolute; top:2rem; left:2rem; background:#FF1919; color:#fff; font-size:0.6rem; padding:0.2rem 0.6rem; border-radius:4px; z-index:5; font-weight:700; letter-spacing:0.1em;">
                         LIVE FEED // DATA.SCAN</div>
-                    <img src="C:\Users\admin\.gemini\antigravity\brain\fa2005a3-4b04-4c9d-a8fd-84e2ec785049\elite_wildlife_biologist_lab_1775030640952.png"
+                    <img src="images/elite_wildlife_biologist_lab_1775030640952.png"
                         alt="Central Command"
                         style="width:100%; border-radius:24px; display:block; filter:saturate(1.2) brightness(1.1);">
                     <div class="scanning-line"
@@ -425,10 +423,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color:#fff;"><span class="logo-mark"><svg
-                                viewBox="0 0 24 24">
-                                <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                            </svg></span>Humane</a>
+                    <a href="index.html" class="logo" style="color:#fff;"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>Humane</a>
                     <p>Ethical wildlife removal and restoration. Certified Biology Specialists based in Portland, OR.
                     </p>
                 </div>
@@ -618,6 +613,9 @@
             obs.observe(el, { attributes: true, attributeFilter: ['class'] });
         });
     </script>
+    <button class="scroll-top" id="scrollTop"><svg viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15" />
+        </svg></button>
     <script src="js/main.js"></script>
 </body>
 

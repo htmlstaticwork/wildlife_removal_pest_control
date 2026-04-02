@@ -50,6 +50,7 @@
             color: var(--text);
             text-decoration: none;
             margin-bottom: 3.5rem;
+            white-space: nowrap;
         }
 
         .logo-mark {
@@ -108,6 +109,41 @@
         .btn-primary:hover {
             background: #ff4d4d;
             transform: translateY(-3px);
+        }
+
+        .auth-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .remember-option {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .remember-option input {
+            width: 16px;
+            height: 16px;
+            accent-color: #FF1919;
+            cursor: pointer;
+        }
+
+        .forgot-link {
+            color: #FF1919;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
         }
 
         .auth-switch {
@@ -186,6 +222,16 @@
             height: 20px;
         }
 
+        @media (max-width: 900px) {
+            .auth-controls-mobile-fix {
+                position: absolute !important;
+                top: 1rem !important;
+                left: 1rem !important;
+                right: auto !important;
+                z-index: 2 !important;
+            }
+        }
+
         @keyframes scaleIn {
             from {
                 transform: scale(0.9);
@@ -198,10 +244,12 @@
             }
         }
     </style>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
 </head>
 
 <body class="auth-page">
-    <div class="auth-controls" style="position:fixed; top:2rem; right:2rem; z-index:100; display:flex; gap:1rem;">
+    <div class="auth-controls auth-controls-mobile-fix"
+        style="position:fixed; top:2rem; right:2rem; z-index:100; display:flex; gap:1rem;">
         <button class="icon-btn" data-theme-toggle title="Theme"
             style="width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--bg-card);color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:0.3s;"><svg
                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" width="20" height="20">
@@ -215,18 +263,19 @@
     </div>
 
     <div class="auth-card">
-        <a href="index.html" class="auth-logo"><span class="logo-mark"><svg viewBox="0 0 24 24" width="24" height="24"
-                    fill="#fff">
-                    <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                </svg></span>Humane</a>
+        <a href="index.html" class="auth-logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>Humane</a>
         <h2 style="color:var(--text);margin-bottom:1rem;text-align:center;">Dispatch Login</h2>
         <p style="color:var(--text-muted);text-align:center;margin-bottom:3rem;font-size:0.9rem;">Establish secure
             connection to Command Center.</p>
         <form id="loginForm">
             <div class="form-group"><label>Station Identity (Email)</label><input type="email" class="form-control"
-                    name="email" placeholder="station@humane.eco" required /></div>
+                    name="email" placeholder="" required /></div>
             <div class="form-group"><label>Security Core (Password)</label><input type="password" class="form-control"
-                    name="password" placeholder="••••••••" required /></div>
+                    name="password" placeholder="" required /></div>
+            <div class="auth-options">
+                <label class="remember-option"><input type="checkbox" name="remember" /> <span>Remember me</span></label>
+                <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
             <button type="submit" class="btn-primary" style="margin-bottom: 2.5rem;">Initiate Connection 📡</button>
         </form>
 
@@ -263,6 +312,9 @@
 
         <div class="auth-switch">No signal? <a href="register.html">Request New Station</a></div>
     </div>
+    <button class="scroll-top" id="scrollTop"><svg viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15" />
+        </svg></button>
     <script>
         document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();

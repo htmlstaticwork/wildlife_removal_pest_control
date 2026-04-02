@@ -30,6 +30,7 @@
             backdrop-filter: blur(10px);
         }
     </style>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
 </head>
 
 <body>
@@ -38,9 +39,7 @@
         <!-- SIDEBAR -->
         <aside class="sidebar" id="sidebar">
             <a href="index.html" class="sidebar-logo">
-                <span class="logo-mark"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff">
-                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                    </svg></span>
+                <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>
                 Humane
             </a>
 
@@ -265,6 +264,9 @@
         </main>
     </div>
 
+    <button class="scroll-top" id="scrollTop" aria-label="Back to top"><svg viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15" />
+        </svg></button>
     <script>
         const sidebar = document.getElementById('sidebar');
         const toggle = document.getElementById('sidebarToggle');
@@ -317,6 +319,14 @@
             const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
             document.documentElement.setAttribute('dir', newDir);
         });
+
+        const scrollBtn = document.getElementById('scrollTop');
+        if (scrollBtn) {
+            window.addEventListener('scroll', () => {
+                scrollBtn.classList.toggle('visible', window.scrollY > 400);
+            });
+            scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
     </script>
 </body>
 

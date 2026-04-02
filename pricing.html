@@ -26,6 +26,10 @@
             box-shadow: var(--shadow-lg);
         }
 
+        .pricing-card-premium.featured .section-label {
+            margin-top: 2.75rem;
+        }
+
         .pricing-card-premium:hover {
             transform: translateY(-20px);
             border-color: #FF1919;
@@ -48,8 +52,29 @@
             letter-spacing: 0.2em;
             font-weight: 700;
             margin-bottom: 2.5rem;
-            padding-left: 0.5rem;
-            border-left: 3px solid #FF1919;
+            text-align: center;
+        }
+
+        .pricing-card-premium .section-label,
+        .pricing-card-premium .price-sub {
+            display: block;
+            text-align: center;
+        }
+
+        .pricing-card-badge {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.4rem 1.2rem;
+            background: #FF1919;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: var(--shadow-sm);
         }
 
         .pricing-list {
@@ -80,7 +105,21 @@
             margin-top: 4px;
             flex-shrink: 0;
         }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .pricing-grid-tablet {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+
+            .pricing-grid-tablet .pricing-card-premium:last-child {
+                grid-column: 1 / -1;
+                width: 100%;
+                max-width: 28rem;
+                margin: 0 auto;
+            }
+        }
     </style>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
 </head>
 
 <body style="background: var(--bg);">
@@ -89,9 +128,7 @@
     <header class="header" id="header">
         <div class="header-inner">
             <a href="index.html" class="logo">
-                <span class="logo-mark"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                    </svg></span>
+                <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>
                 Humane
             </a>
             <nav class="nav">
@@ -122,9 +159,7 @@
     <div class="overlay" id="overlay"></div>
     <nav class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-header">
-            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                    </svg></span>Humane</a>
+            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>Humane</a>
             <button class="mobile-nav-close icon-btn" id="mobileNavClose"><svg viewBox="0 0 24 24" width="18"
                     height="18" stroke="currentColor" fill="none" stroke-width="2">
                     <path d="M18 6 6 18M6 6l12 12" />
@@ -136,6 +171,7 @@
         <a href="about.html">About</a>
         <a href="pricing.html" class="active">Pricing</a>
         <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
         <a href="dashboard.html" class="nav-dashboard">Dashboard</a>
     </nav>
 
@@ -148,7 +184,7 @@
 
     <section style="background:var(--bg);padding:8rem 0;">
         <div class="container">
-            <div class="grid-3" style="gap:2.5rem;align-items:stretch;margin-bottom:8rem;">
+            <div class="grid-3 pricing-grid-tablet" style="gap:2.5rem;align-items:stretch;margin-bottom:8rem;">
                 <!-- Plan 1 -->
                 <div class="pricing-card-premium reveal delay-1">
                     <span class="section-label" style="margin-bottom:1rem;color:#FF1919;">TACTICAL.01</span>
@@ -167,8 +203,7 @@
 
                 <!-- Plan 2 -->
                 <div class="pricing-card-premium featured reveal delay-2">
-                    <div
-                        style="position:absolute;top:2rem;right:2rem;padding:0.4rem 1.2rem;background:#FF1919;color:#fff;border-radius:4px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;box-shadow:var(--shadow-sm);">
+                    <div class="pricing-card-badge">
                         SHIELD CORE</div>
                     <span class="section-label"
                         style="margin-bottom:1rem;color:var(--text-muted);border-color:var(--border);">TACTICAL.EX</span>
@@ -220,10 +255,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color:#fff;"><span class="logo-mark"><svg
-                                viewBox="0 0 24 24">
-                                <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                            </svg></span>Humane</a>
+                    <a href="index.html" class="logo" style="color:#fff;"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>Humane</a>
                     <p>Ethical wildlife removal and restoration. Certified Biology Specialists based in Portland, OR.
                     </p>
                 </div>
@@ -264,6 +296,9 @@
         </div>
     </footer>
 
+    <button class="scroll-top" id="scrollTop"><svg viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15" />
+        </svg></button>
     <script src="js/main.js"></script>
 </body>
 

@@ -20,12 +20,16 @@
         }
 
         .manifesto {
-            padding: 12rem 0;
+            padding: 8rem 0;
             text-align: center;
             background: var(--bg-2);
             color: var(--text);
             position: relative;
             overflow: hidden;
+        }
+
+        .about-section {
+            padding: 8rem 0;
         }
 
         .manifesto h2 {
@@ -193,7 +197,38 @@
                 align-items: center;
             }
         }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .about-cta-buttons {
+                justify-content: center;
+            }
+
+            .elite-command-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem !important;
+            }
+
+            .elite-command-grid .card {
+                text-align: left !important;
+            }
+
+            .elite-command-grid .card:last-child {
+                grid-column: 1 / -1;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+
+            .elite-command-image {
+                height: 320px !important;
+                object-position: center top !important;
+            }
+
+            .elite-command-image-tara {
+                object-position: center 12% !important;
+            }
+        }
     </style>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
 </head>
 
 <body style="background: var(--bg);">
@@ -202,9 +237,7 @@
     <header class="header" id="header">
         <div class="header-inner">
             <a href="index.html" class="logo">
-                <span class="logo-mark"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                    </svg></span>
+                <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>
                 Humane
             </a>
             <nav class="nav">
@@ -235,9 +268,7 @@
     <div class="overlay" id="overlay"></div>
     <nav class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-header">
-            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                    </svg></span>Humane</a>
+            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>Humane</a>
             <button class="mobile-nav-close icon-btn" id="mobileNavClose"><svg viewBox="0 0 24 24" width="18"
                     height="18" stroke="currentColor" fill="none" stroke-width="2">
                     <path d="M18 6 6 18M6 6l12 12" />
@@ -249,6 +280,7 @@
         <a href="about.html" class="active">About</a>
         <a href="pricing.html">Pricing</a>
         <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
         <a href="dashboard.html" class="nav-dashboard">Dashboard</a>
     </nav>
 
@@ -279,7 +311,7 @@
 
 
 
-    <section style="background:var(--bg);padding:8rem 0;">
+    <section class="about-section" style="background:var(--bg);">
         <div class="container">
             <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:center;">
                 <div class="reveal-left">
@@ -306,7 +338,7 @@
                         model is the pinnacle of modern property defense.</p>
                     <p style="margin-bottom:3rem;color:var(--text-muted);font-size:1.1rem;">"Wildlife belongs in the
                         forest; your home belongs to you. We ensure that line is never crossed."</p>
-                    <div style="display:flex;gap:1.5rem;"><a href="services.html" class="btn-primary">View Defense
+                    <div class="about-cta-buttons" style="display:flex;gap:1.5rem;"><a href="services.html" class="btn-primary">View Defense
                             Methods</a><a href="contact.html" class="btn-secondary"
                             style="border-color:#FF1919;color:var(--text);background:transparent;">Command Desk</a>
                     </div>
@@ -333,42 +365,51 @@
         </div>
     </section>
 
-    <section style="background:var(--bg-2);padding:10rem 0;">
+    <section class="about-section" style="background:var(--bg-2);">
         <div class="container">
             <div style="text-align:center;margin-bottom:6rem;" class="reveal">
                 <span class="section-label" style="color:#FF1919;">Elite High Command</span>
                 <h2 style="color:var(--text);">Specialized Operatives</h2>
             </div>
-            <div class="grid-3" style="gap:3rem;">
+            <div class="grid-3 elite-command-grid" style="gap:3rem;">
                 <div class="card reveal delay-1" style="padding:0;overflow:hidden;border:none;background:transparent;">
                     <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=80"
+                        class="elite-command-image"
                         style="width:100%;height:400px;object-fit:cover;border-radius:24px;margin-bottom:2rem;filter:grayscale(1);" />
-                    <h4 style="margin-bottom:0.5rem;font-size:1.5rem;color:var(--text);">Dr. Elena Marsh</h4>
-                    <p
-                        style="color:#FF1919;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;margin-bottom:1rem;">
-                        Founder • Chief Strategist</p>
-                    <p style="font-size:0.95rem;color:var(--text-muted);">Architect of the Power Exclusion model. Expert
-                        in adversarial animal behavior.</p>
+                    <div style="padding:0 1.5rem 1.5rem;">
+                        <h4 style="margin-bottom:0.5rem;font-size:1.5rem;color:var(--text);">Dr. Elena Marsh</h4>
+                        <p
+                            style="color:#FF1919;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;margin-bottom:1rem;">
+                            Founder • Chief Strategist</p>
+                        <p style="font-size:0.95rem;color:var(--text-muted);">Architect of the Power Exclusion model. Expert
+                            in adversarial animal behavior.</p>
+                    </div>
                 </div>
                 <div class="card reveal delay-2" style="padding:0;overflow:hidden;border:none;background:transparent;">
                     <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&q=80"
+                        class="elite-command-image"
                         style="width:100%;height:400px;object-fit:cover;border-radius:24px;margin-bottom:2rem;filter:grayscale(1);" />
-                    <h4 style="margin-bottom:0.5rem;font-size:1.5rem;color:var(--text);">Marcus Reed</h4>
-                    <p
-                        style="color:#FF1919;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;margin-bottom:1rem;">
-                        Structural Defense Lead</p>
-                    <p style="font-size:0.95rem;color:var(--text-muted);">Master Engineer. Designs the custom
-                        carbon-steel barriers that shield your peak.</p>
+                    <div style="padding:0 1.5rem 1.5rem;">
+                        <h4 style="margin-bottom:0.5rem;font-size:1.5rem;color:var(--text);">Marcus Reed</h4>
+                        <p
+                            style="color:#FF1919;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;margin-bottom:1rem;">
+                            Structural Defense Lead</p>
+                        <p style="font-size:0.95rem;color:var(--text-muted);">Master Engineer. Designs the custom
+                            carbon-steel barriers that shield .</p>
+                    </div>
                 </div>
                 <div class="card reveal delay-3" style="padding:0;overflow:hidden;border:none;background:transparent;">
                     <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80"
+                        class="elite-command-image elite-command-image-tara"
                         style="width:100%;height:400px;object-fit:cover;border-radius:24px;margin-bottom:2rem;filter:grayscale(1);" />
-                    <h4 style="margin-bottom:0.5rem;font-size:1.5rem;color:var(--text);">Tara Linden</h4>
-                    <p
-                        style="color:#FF1919;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;margin-bottom:1rem;">
-                        Lead Tech • High Peak Operative</p>
-                    <p style="font-size:0.95rem;color:var(--text-muted);">Specialist in vertical exclusion and nocturnal
-                        species management.</p>
+                    <div style="padding:0 1.5rem 1.5rem;">
+                        <h4 style="margin-bottom:0.5rem;font-size:1.5rem;color:var(--text);">Tara Linden</h4>
+                        <p
+                            style="color:#FF1919;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;margin-bottom:1rem;">
+                            Lead Tech • High Peak Operative</p>
+                        <p style="font-size:0.95rem;color:var(--text-muted);">Specialist in vertical exclusion and nocturnal
+                            species management.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -379,10 +420,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color:#fff;"><span class="logo-mark"><svg
-                                viewBox="0 0 24 24">
-                                <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                            </svg></span>Humane</a>
+                    <a href="index.html" class="logo" style="color:#fff;"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>Humane</a>
                     <p>Ethical wildlife removal and restoration. Certified Biology Specialists based in Portland, OR.
                     </p>
                 </div>
@@ -672,6 +710,9 @@
             }, { passive: true });
         }
     </script>
+    <button class="scroll-top" id="scrollTop"><svg viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15" />
+        </svg></button>
     <script src="js/main.js"></script>
 </body>
 
