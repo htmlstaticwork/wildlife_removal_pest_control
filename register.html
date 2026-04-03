@@ -195,7 +195,8 @@
             }
         }
     </style>
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
 </head>
 
 <body class="auth-page">
@@ -214,23 +215,49 @@
     </div>
 
     <div class="auth-card">
-        <a href="index.html" class="auth-logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>Humane</a>
+        <a href="index.html" class="auth-logo"><span class="logo-mark"><svg viewBox="0 0 24 24">
+                    <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
+                </svg></span>Humane</a>
         <h2 style="color:var(--text);margin-bottom:1rem;text-align:center;">Station Request</h2>
         <p style="color:var(--text-muted);text-align:center;margin-bottom:3rem;font-size:0.9rem;">Initiate new member
             status and structural protection core.</p>
         <form id="registerForm">
-            <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-                <div class="form-group"><label>First Identification</label><input type="text" class="form-control"
-                        name="first" placeholder="" required /></div>
-                <div class="form-group"><label>Last Identification</label><input type="text" class="form-control"
-                        name="last" placeholder="" required /></div>
-            </div>
+            <div class="form-group"><label>First Identification</label><input type="text" class="form-control"
+                    name="first" placeholder="" required /></div>
+            <div class="form-group"><label>Last Identification</label><input type="text" class="form-control"
+                    name="last" placeholder="" required /></div>
             <div class="form-group"><label>Station Link (Email)</label><input type="email" class="form-control"
                     name="email" placeholder="" required /></div>
-            <div class="form-group"><label>Secure Phrase (Password)</label><input type="password" class="form-control"
-                    name="password" placeholder="" required /></div>
-            <div class="form-group"><label>Confirm Secure Phrase</label><input type="password" class="form-control"
-                    name="confirm_password" placeholder="" required /></div>
+            <div class="form-group">
+                <label>Secure Phrase (Password)</label>
+                <div style="position:relative;">
+                    <input type="password" class="form-control" id="passwordField" name="password" placeholder=""
+                        required style="padding-right:3.5rem;" />
+                    <button type="button" onclick="togglePwd('passwordField','eyeIcon1')" tabindex="-1"
+                        style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0;display:flex;align-items:center;">
+                        <svg id="eyeIcon1" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none"
+                            stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Confirm Secure Phrase</label>
+                <div style="position:relative;">
+                    <input type="password" class="form-control" id="confirmPasswordField" name="confirm_password"
+                        placeholder="" required style="padding-right:3.5rem;" />
+                    <button type="button" onclick="togglePwd('confirmPasswordField','eyeIcon2')" tabindex="-1"
+                        style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0;display:flex;align-items:center;">
+                        <svg id="eyeIcon2" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none"
+                            stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
             <div class="terms-row">
                 <input type="checkbox" id="termsAgree" name="terms" required />
                 <label for="termsAgree">I agree to the <a href="#">Terms & Conditions</a></label>
@@ -328,9 +355,20 @@
     <script>
         document.getElementById('registerForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            const btn = this.querySelector('button'); btn.textContent = 'ACTIVATING SIGNAL...'; btn.disabled = true;
+            const btn = this.querySelector('button[type="submit"]'); btn.textContent = 'ACTIVATING SIGNAL...'; btn.disabled = true;
             setTimeout(() => { window.location.href = 'dashboard.html'; }, 1500);
         });
+        function togglePwd(fieldId, iconId) {
+            const field = document.getElementById(fieldId);
+            const icon = document.getElementById(iconId);
+            if (field.type === 'password') {
+                field.type = 'text';
+                icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+            } else {
+                field.type = 'password';
+                icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+            }
+        }
     </script>
     <script src="js/main.js"></script>
 </body>

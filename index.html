@@ -283,6 +283,21 @@
                 height: 300px !important;
             }
         }
+
+        @media (max-width: 600px) {
+            .cta-btn-group {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 1rem !important;
+            }
+
+            .cta-btn-group a {
+                width: 100% !important;
+                text-align: center !important;
+                justify-content: center !important;
+                box-sizing: border-box !important;
+            }
+        }
     </style>
 </head>
 
@@ -339,8 +354,8 @@
         <a href="about.html">About</a>
         <a href="pricing.html">Pricing</a>
         <a href="contact.html">Contact</a>
-        <a href="login.html">Login</a>
         <a href="dashboard.html" class="nav-dashboard">Dashboard</a>
+        <a href="login.html">Login</a>
     </nav>
 
     <!-- ① HP INSPIRED HERO -->
@@ -370,35 +385,51 @@
         <div class="container">
             <div style="text-align:center;margin-bottom:5rem;" class="reveal">
                 <span class="section-label">Our Methodology</span>
-                <h2 style="margin-bottom:1rem;">The 4-Step Exclusion Protocol</h2>
+                <h2 style="margin-bottom:1rem;text-align:center;">The 4-Step Exclusion Protocol</h2>
                 <p style="max-width:580px;margin:0 auto;">A systematic approach rooted in animal behavior and building
                     science.</p>
             </div>
 
             <div class="grid-4" style="gap:2rem;">
-                <div class="card reveal delay-1" style="position:relative;overflow:hidden;">
-                    <div class="card-icon" style="margin:0 auto 1.5rem;">🔍</div>
-                    <h3>Inspect</h3>
-                    <p>A full 360° vulnerability audit of your property from basement to peak, identifying every
-                        micro-entry point.</p>
+                <div class="card reveal delay-1" style="position:relative;overflow:hidden;padding:0;">
+                    <img src="images/step_inspect.png"
+                        alt="Professional wildlife inspector examining a house for entry points"
+                        style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;display:block;" />
+                    <div style="padding:1.5rem;">
+                        <h3>Inspect</h3>
+                        <p>A full 360° vulnerability audit of your property from basement to peak, identifying every
+                            micro-entry point.</p>
+                    </div>
                 </div>
-                <div class="card reveal delay-2" style="position:relative;overflow:hidden;">
-                    <div class="card-icon" style="margin:0 auto 1.5rem;">✋</div>
-                    <h3>Exclude</h3>
-                    <p>Using one-way ethical exit valves, we allow wildlife to leave and never return—completely
-                        stress-free.</p>
+                <div class="card reveal delay-2" style="position:relative;overflow:hidden;padding:0;">
+                    <img src="https://images.pexels.com/photos/8486972/pexels-photo-8486972.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                        alt="Humane one-way exclusion valve being installed on a roof vent"
+                        style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;display:block;" />
+                    <div style="padding:1.5rem;">
+                        <h3>Exclude</h3>
+                        <p>Using one-way ethical exit valves, we allow wildlife to leave and never return—completely
+                            stress-free.</p>
+                    </div>
                 </div>
-                <div class="card reveal delay-3" style="position:relative;overflow:hidden;">
-                    <div class="card-icon" style="margin:0 auto 1.5rem;">🛡️</div>
-                    <h3>Protect</h3>
-                    <p>We seal entry points with industrial-grade steel and wood composite that matches your home's
-                        aesthetic.</p>
+                <div class="card reveal delay-3" style="position:relative;overflow:hidden;padding:0;">
+                    <img src="https://images.pexels.com/photos/1109541/pexels-photo-1109541.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                        alt="Industrial-grade steel mesh sealing a home entry point"
+                        style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;display:block;" />
+                    <div style="padding:1.5rem;">
+                        <h3>Protect</h3>
+                        <p>We seal entry points with industrial-grade steel and wood composite that matches your home's
+                            aesthetic.</p>
+                    </div>
                 </div>
-                <div class="card reveal delay-4" style="position:relative;overflow:hidden;">
-                    <div class="card-icon" style="margin:0 auto 1.5rem;">✨</div>
-                    <h3>Restoration</h3>
-                    <p>Full cleanup and sanitation of impacted areas, returning your home to its healthy, pristine
-                        state.</p>
+                <div class="card reveal delay-4" style="position:relative;overflow:hidden;padding:0;">
+                    <img src="https://images.pexels.com/photos/3768914/pexels-photo-3768914.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                        alt="Professional cleaning and restoring a home after wildlife removal"
+                        style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;display:block;" />
+                    <div style="padding:1.5rem;">
+                        <h3>Restoration</h3>
+                        <p>Full cleanup and sanitation of impacted areas, returning your home to its healthy, pristine
+                            state.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -534,7 +565,7 @@
                     <h2 style="color:var(--text);margin-bottom:1.5rem;">Take the Lead in Home Protection</h2>
                     <p style="color:var(--text-muted);max-width:580px;margin:0 auto 3rem;">Join 3,200+ homeowners
                         who have secured their property the right way. No cruelty, no compromises.</p>
-                    <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
+                    <div class="cta-btn-group" style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
                         <a href="contact.html" class="btn-primary"
                             style="padding:1rem 3rem;background:var(--secondary);border-color:var(--secondary);">Book My
                             Survey</a>
@@ -590,7 +621,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Humane — Premium Wildlife Solutions. All Rights Reserved.</p>
+                <p>© 2026 Humane — Premium Wildlife Solutions. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
