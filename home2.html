@@ -9,175 +9,115 @@
     <style>
         .elite-hero {
             position: relative;
-            min-height: 100vh;
-            background: #000;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
+            width: 100%;
+            min-height: 85vh;
+            background-image: url('images/protected_home.png');
+            background-position: center;
+            background-size: cover;
+            padding: 12rem 1.5rem 4rem;
+            text-align: center;
+            margin-top: -70px;
         }
 
-        #screen {
+        .elite-hero-overlay {
             position: absolute;
             inset: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            perspective: 400px;
-            perspective-origin: center;
-            cursor: pointer;
+            background: linear-gradient(135deg, rgba(13, 20, 8, 0.95), rgba(13, 20, 8, 0.7));
             z-index: 1;
         }
 
-        #cube {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            margin: auto;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            transform-style: preserve-3d;
-            transform: translateZ(400px);
-        }
-
-        #cube img {
-            position: absolute;
-            pointer-events: none;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border: 1px solid rgba(255, 25, 25, 0.1);
-            object-fit: cover;
-            /* Ensure image fills the face */
-        }
-
-        #cube img:nth-child(1) {
-            transform: translateZ(-199px);
-        }
-
-        #cube img:nth-child(2) {
-            transform: rotateY(90deg) translateZ(-199px);
-        }
-
-        #cube img:nth-child(3) {
-            transform: rotateY(-90deg) translateZ(-199px);
-        }
-
-        #cube img:nth-child(4) {
-            transform: rotateX(-90deg) translateZ(-199px);
-        }
-
-        #cube img:nth-child(5) {
-            transform: rotateX(90deg) translateZ(-199px);
-        }
-
-        #cube img:nth-child(6) {
-            transform: rotateY(180deg) translateZ(-199px);
-        }
-
-        .hero-content {
+        .elite-hero-content {
             position: relative;
             z-index: 10;
-            text-align: center;
-            max-width: 800px;
-            padding: 2rem;
-            pointer-events: none;
-            /* Let clicks pass through to the cube */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1.5s ease-out;
+            max-width: 900px;
         }
 
-        .hero-content * {
-            pointer-events: auto;
-            /* Enable interaction for buttons/text if needed */
+        .elite-badge {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: rgba(255, 25, 25, 0.15);
+            color: #FF1919;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255, 25, 25, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%);
-            z-index: 5;
-            pointer-events: none;
+        .elite-hero h1 {
+            color: white;
+            font-weight: 800;
+            font-size: clamp(3rem, 10vw, 6rem);
+            line-height: 1;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
         }
 
-        .red-text {
-            background: linear-gradient(135deg, #FF1919 0%, #b30000 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .elite-hero h1 span {
+            color: #FF1919;
         }
 
-        .concierge-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 3rem;
-            border-radius: 32px;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        .elite-hero-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 3.5rem;
+            line-height: 1.6;
+            max-width: 700px;
         }
 
-        .concierge-card:hover {
-            background: var(--bg-card);
+        .elite-hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .elite-hero-actions .btn-primary {
+            background: #FF1919;
             border-color: #FF1919;
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            color: #fff;
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        @media (max-width: 900px) {
-            .hero-content {
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+        .elite-hero-actions .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 25, 25, 0.4);
+        }
 
-            .hero-content h1,
-            .hero-content p {
-                text-align: center;
-            }
+        .elite-hero-actions .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: white !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            padding: 1.25rem 3rem;
+            border: 1px solid;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            backdrop-filter: blur(10px);
+        }
 
-            .hero-content div {
-                justify-content: center !important;
-            }
-
-            /* Fix sentinel and command section grids on mobile */
-            .sentinel-section .container,
-            .command-center-grid {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 4rem !important;
-                text-align: center !important;
-                padding: 4rem 1.5rem !important;
-            }
-
-            .sentinel-visual,
-            .lab-visual-frame {
-                order: -1 !important;
-                /* Put image/visual on top */
-                width: 100% !important;
-            }
-
-            .sentinel-text h2,
-            .lab-intel-text h3 {
-                font-size: 2.5rem !important;
-            }
-
-            .sentinel-text,
-            .lab-intel-text {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            /* Fix Phase 03 Transparency cards on mobile */
-            .dna-section .container>div[style*="display:grid"] {
-                grid-template-columns: 1fr !important;
-                gap: 2rem !important;
-            }
-
-            .dna-section .container>div:first-child {
-                margin-bottom: 5rem !important;
-            }
+        .elite-hero-actions .btn-secondary:hover {
+            background: rgba(255, 255, 255, 1);
+            color: #000 !important;
         }
     </style>
     <link rel="icon"
@@ -241,58 +181,38 @@
         <a href="login.html">Login</a>
     </nav>
 
-    <!-- ① HP INSPIRED HERO WITH 3D ANIMATION -->
+    <!-- ① NEW PREMIUM HERO -->
     <section class="elite-hero">
-        <div id="screen">
-            <div id="cube">
-                <!-- Using high-quality Unsplash forest images for better loading and aesthetic -->
-                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80" alt="Forest 1">
-                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80" alt="Forest 2">
-                <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=800&q=80" alt="Forest 3">
-                <img src="https://images.unsplash.com/photo-1511497584788-8767fe770c55?w=800&q=80" alt="Forest 4">
-                <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&q=80" alt="Forest 5">
-                <img src="https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?w=800&q=80" alt="Forest 6">
+        <div class="elite-hero-overlay"></div>
+        <div class="container elite-hero-content">
+            <span class="elite-badge">Tier: Limited to 100 Properties</span>
+            <h1>The <span>Ultimate</span><br>Property Defense.</h1>
+            <p class="elite-hero-subtitle">Premium wildlife removal and comprehensive pest control for those who demand
+                absolute structural integrity and pest-free environments.</p>
+            <div class="elite-hero-actions">
+                <a href="contact.html" class="btn-primary">Reserve Membership</a>
+                <a href="#details" class="btn-secondary">View Benefits</a>
             </div>
-        </div>
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-            <span class="section-label"
-                style="color:#FF1919;border-color:rgba(255,25,25,0.4);backdrop-filter:blur(5px);padding:0.4rem 1.2rem;">Elite
-                Tier: Limited to 100 Properties</span>
-            <h1 style="color:#fff;margin: 2rem 0; font-size: clamp(2.5rem, 8vw, 4.5rem);">The <span
-                    class="red-text">360° Sanctuary</span><br>Protection Hub.</h1>
-            <p
-                style="color:rgba(255,255,255,0.8);font-size:1.25rem;margin-bottom:4rem;max-width:650px;margin-left:auto;margin-right:auto;">
-                Uncompromising ethical excellence powered by immersive biological oversight and 24/7 dedicated response.
-            </p>
-            <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;">
-                <a href="contact.html" class="btn-primary"
-                    style="background:#FF1919;border-color:#FF1919;padding:1rem 3rem;">Inquire for Membership</a>
-                <a href="#details" class="btn-secondary"
-                    style="color:#fff;border-color:rgba(255,255,255,0.3);padding:1rem 3rem;">View Concierge Benefits</a>
-            </div>
-        </div>
-        </div>
         </div>
     </section>
 
     <!-- SECTION 1: THE THERMAL SENTINEL (PARALLAX + FLOATING) -->
-    <section class="sentinel-section" style="background:#000; padding:12rem 0; overflow:hidden;">
+    <section class="sentinel-section" style="background:var(--bg); padding:8rem 0; overflow:hidden;">
         <div class="container" style="display:grid; grid-template-columns: 1fr 1.2fr; gap:5rem; align-items:center;">
             <div class="sentinel-text reveal">
                 <span class="section-label" style="color:#FF1919; margin-bottom:1rem; display:block;">Phase 01:
                     Intelligence</span>
-                <h2 style="color:#fff; font-size:3.5rem; margin-bottom:2rem;">The Thermal Sentinel Oversight.</h2>
-                <p style="color:rgba(255,255,255,0.7); font-size:1.1rem; line-height:1.8;">Elite properties are equipped
-                    with non-invasive thermal sensors that feed live bioluminescent signatures into our hub. We detect
-                    intrusion before it reaches your structural perimeter.</p>
+                <h2 style="color:var(--text); font-size:3.5rem; margin-bottom:2rem;">Intelligence-Driven Pest Control.
+                </h2>
+                <p style="color:var(--text-muted); font-size:1.1rem; line-height:1.8;">Our advanced detection
+                    systems identify invasive pest activity and wildlife breaches before they cause structural damage.
+                    We use real-time data to deploy targeted elimination and exclusion protocols.</p>
                 <div style="margin-top:3rem; display:flex; flex-direction:column; gap:1.5rem;">
                     <div class="glass"
                         style="padding:1.5rem; border-radius:16px; border:1px solid rgba(255,25,25,0.2);">
                         <strong style="color:#FF1919; display:block; margin-bottom:0.5rem;">24/7 Bio-Signature
                             Tracking</strong>
-                        <span style="color:rgba(255,255,255,0.6); font-size:0.9rem;">Automated identification of
+                        <span style="color:var(--text-muted); font-size:0.9rem;">Automated identification of
                             predator vs. protected species.</span>
                     </div>
                 </div>
@@ -312,7 +232,7 @@
 
     <!-- SECTION 2: THE INVISIBLE BARRIER (SCROLL REVEAL CLIP PATH) -->
     <section class="barrier-reveal-section"
-        style="background:var(--bg-2); padding:0; height:130vh; position:relative; overflow:hidden;">
+        style="background:var(--bg-2); padding:0; height:105vh; position:relative; overflow:hidden;">
         <div class="reveal-container" style="position:sticky; top:0; height:100vh; overflow:hidden;">
             <div class="reveal-inner"
                 style="position:absolute; inset:0; clip-path: circle(20% at 50% 50%); transition: clip-path 0.1s linear;">
@@ -321,46 +241,46 @@
             </div>
             <div class="reveal-text container"
                 style="position:relative; z-index:10; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
-                <h2 style="color:#fff; font-size:4rem; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">The Invisible Shield.
-                </h2>
-                <p style="color:#fff; font-size:1.25rem; max-width:700px; margin-top:2rem;">Proprietary passive
-                    exclusion tech integrated directly into your luxury architecture. No visible cages. No visible
-                    spikes. Just total peace.</p>
+                <h2 style="color:#fff; font-size:4rem; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">Pest Barrier
+                    Excellence.</h2>
+                <p style="color:#fff; font-size:1.25rem; max-width:700px; margin-top:2rem;">Advanced chemical-free
+                    barriers and precision exclusion technology that keeps rodents, insects, and wildlife out of your
+                    living space forever.</p>
             </div>
         </div>
     </section>
 
     <!-- SECTION 3: OPERATIVE DNA (STAGGER CARDS + GLOW) -->
-    <section class="dna-section" style="background:#0a0c10; padding:12rem 0; overflow:hidden; position:relative;">
+    <section class="dna-section" style="background:var(--bg); padding:4rem 0; overflow:hidden; position:relative;">
         <div
             style="position:absolute; top:-10%; left:-10%; width:40%; height:40%; background:radial-gradient(circle, rgba(255,25,25,0.05) 0%, transparent 70%);">
         </div>
         <div class="container">
-            <div style="text-align:center; margin-bottom:10rem;">
+            <div style="text-align:center; margin-bottom:4rem;">
                 <span class="section-label" style="color:#FF1919; margin-bottom:1rem; display:block;">Phase 03:
-                    Transparency</span>
-                <h2 style="color:#fff; font-size:3.5rem;">Total Biological Accountability.</h2>
+                    Precision Control</span>
+                <h2 style="color:var(--text); font-size:3.5rem;">Scientific Pest Elimination.</h2>
             </div>
             <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:3rem;">
                 <div class="reveal dna-card"
                     style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,25,25,0.15); padding:3rem; border-radius:40px; transition:0.4s;">
                     <div style="font-size:3rem; margin-bottom:2rem;">🧬</div>
-                    <h3 style="color:#fff; margin-bottom:1.5rem;">DNA Sequencing</h3>
-                    <p style="color:rgba(255,255,255,0.6); font-size:0.95rem;">We map the specific heat-signatures and
-                        genetic markers of recurring native wildlife.</p>
+                    <h3 style="color:var(--text); margin-bottom:1.5rem;">Targeted Eradication</h3>
+                    <p style="color:var(--text-muted); font-size:0.95rem;">Application of host-specific,
+                        eco-friendly treatments to eliminate infestations without impacting your home's ecosystem.</p>
                 </div>
                 <div class="reveal dna-card"
                     style="background:rgba(255,25,25,0.05); border:1px solid #FF1919; padding:3rem; border-radius:40px; transition:0.4s; transform:translateY(-30px);">
                     <div style="font-size:3rem; margin-bottom:2rem;">📊</div>
-                    <h3 style="color:#fff; margin-bottom:1.5rem;">Real-time HUD</h3>
-                    <p style="color:rgba(255,255,255,0.6); font-size:0.95rem;">Elite members receive a military-grade
+                    <h3 style="color:#14171F; margin-bottom:1.5rem;">Real-time HUD</h3>
+                    <p style="color:#4a5568; font-size:0.95rem;">Elite members receive a military-grade
                         interactive dashboard visualizing every sensor node.</p>
                 </div>
                 <div class="reveal dna-card"
                     style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,25,25,0.15); padding:3rem; border-radius:40px; transition:0.4s;">
                     <div style="font-size:3rem; margin-bottom:2rem;">🛡️</div>
-                    <h3 style="color:#fff; margin-bottom:1.5rem;">Structural Echo</h3>
-                    <p style="color:rgba(255,255,255,0.6); font-size:0.95rem;">Automated audio-visual deterrents tuned
+                    <h3 style="color:var(--text); margin-bottom:1.5rem;">Structural Echo</h3>
+                    <p style="color:var(--text-muted); font-size:0.95rem;">Automated audio-visual deterrents tuned
                         to predator frequencies to guide wildlife away.</p>
                 </div>
             </div>
@@ -380,11 +300,12 @@
                 <div class="lab-intel-text">
                     <span class="section-label" style="color:#FF1919; margin-bottom:1rem; display:block;">Phase 04:
                         Command</span>
-                    <h3 style="color:#fff; font-size:3rem; margin-bottom:2rem;">The Central <span
-                            class="red-text">Control</span> Hub.</h3>
-                    <p style="color:rgba(255,255,255,0.6); margin-bottom:3rem; font-size:1.1rem;">From this
-                        surgical-grade facility, we oversee the biological integrity of every membership property. Your
-                        sanctuary is managed with digital forensic precision.</p>
+                    <h3 style="color:var(--text); margin-bottom:2rem;">The Pest <span class="red-text">Control</span>
+                        Center.
+                    </h3>
+                    <p style="color:var(--text-muted); margin-bottom:3rem; font-size:1.1rem;">Our command center
+                        monitors pest trends and wildlife activity across your region, ensuring our response is fast,
+                        accurate, and permanent.</p>
 
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
                         <div class="hud-metric">
@@ -392,7 +313,7 @@
                                 style="color:#FF1919; font-size:2.5rem; font-weight:700; margin-bottom:0.5rem; font-family:'Playfair Display';">
                                 0</div>
                             <div
-                                style="color:rgba(255,255,255,0.4); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em;">
+                                style="color:var(--text-muted); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em;">
                                 Active Monitoring</div>
                         </div>
                         <div class="hud-metric">
@@ -400,7 +321,7 @@
                                 style="color:#FF1919; font-size:2.5rem; font-weight:700; margin-bottom:0.5rem; font-family:'Playfair Display';">
                                 0</div>
                             <div
-                                style="color:rgba(255,255,255,0.4); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em;">
+                                style="color:var(--text-muted); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em;">
                                 Exclusion Accuracy</div>
                         </div>
                     </div>
@@ -467,161 +388,88 @@
                 <p>© 2026 Humane — Premium Wildlife Solutions. All Rights Reserved.</p>
             </div>
         </div>
-    </footer>
+        <script>
+            // Removed non-functional 3D cube logic as elements are missing
+            // Initializing elite animations
 
-    <script>
-        const screenObj = {
-            init(id) {
-                this.elem = document.getElementById(id);
-                this.style = this.elem.style;
-                this.resize();
-                window.addEventListener("resize", () => this.resize(), false);
-            },
-            resize() {
-                this.width = this.elem.offsetWidth;
-                this.height = this.elem.offsetHeight;
+
+            // UNIQUE ELITE ANIMATIONS
+
+            // 1. Sentinel Image Tilt (3D)
+            const sentinelWrapper = document.querySelector('.floating-img-wrapper');
+            if (sentinelWrapper) {
+                sentinelWrapper.parentElement.addEventListener('mousemove', (e) => {
+                    const rect = sentinelWrapper.parentElement.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    sentinelWrapper.style.transform = `rotateY(${x * 20}deg) rotateX(${-y * 20}deg) translateZ(20px)`;
+                });
+                sentinelWrapper.parentElement.addEventListener('mouseleave', () => {
+                    sentinelWrapper.style.transform = `rotateY(0) rotateX(0) translateZ(0)`;
+                });
             }
-        };
 
-        const cube = document.getElementById("cube");
-        const ease = (value, target, speed) => value += (target - value) * speed;
-
-        const pointer = {
-            init() {
-                this.x = 0;
-                this.y = 0;
-                this.z = 0;
-                this.xb = 0;
-                this.yb = 0;
-                this.dx = 0;
-                this.dy = 0;
-                this.isDown = false;
-                window.addEventListener('pointermove', e => this.move(e), false);
-                window.addEventListener('pointerdown', e => this.down(e), false);
-                window.addEventListener('pointerup', e => this.up(e), false);
-                window.addEventListener('pointerout', e => this.up(e), false);
-            },
-            down(e) {
-                this.move(e);
-                this.xb = this.x;
-                this.yb = this.y;
-                this.isDown = true;
-                this.z = 250;
-                // Don't prevent default if we want buttons to work, but let's see
-            },
-            up(e) {
-                this.isDown = false;
-                this.z = 400;
-            },
-            move(e) {
-                this.x = e.clientX;
-                this.y = e.clientY;
-                if (this.isDown) {
-                    this.dx += (this.x - this.xb) / screenObj.width;
-                    this.dy += (this.y - this.yb) / screenObj.height;
-                }
-                this.xb = this.x;
-                this.yb = this.y;
-            }
-        };
-
-        screenObj.init('screen');
-        pointer.init();
-
-        let ex = 0, ey = 0, ez = 100;
-        pointer.z = 400;
-
-        const run = () => {
-            requestAnimationFrame(run);
-            ex = ease(ex, pointer.dx, 0.1);
-            ey = ease(ey, pointer.dy, 0.1);
-            ez = ease(ez, pointer.z, 0.01);
-            pointer.dy = ease(pointer.dy, 0.5, 0.0025);
-            cube.style.setProperty("transform", `translateZ(${ez}px) rotateX(${180 * ey - 90}deg) rotateY(${-180 * ex}deg)`);
-            document.getElementById('screen').style.setProperty("perspective", `${ez}px`);
-        };
-        run();
-
-        // UNIQUE ELITE ANIMATIONS
-
-        // 1. Sentinel Image Tilt (3D)
-        const sentinelWrapper = document.querySelector('.floating-img-wrapper');
-        if (sentinelWrapper) {
-            sentinelWrapper.parentElement.addEventListener('mousemove', (e) => {
-                const rect = sentinelWrapper.parentElement.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                sentinelWrapper.style.transform = `rotateY(${x * 20}deg) rotateX(${-y * 20}deg) translateZ(20px)`;
-            });
-            sentinelWrapper.parentElement.addEventListener('mouseleave', () => {
-                sentinelWrapper.style.transform = `rotateY(0) rotateX(0) translateZ(0)`;
-            });
-        }
-
-        // 2. Invisible Shield Scroll Clip Reveal
-        const revealInner = document.querySelector('.reveal-inner');
-        const revealSection = document.querySelector('.barrier-reveal-section');
-        if (revealInner && revealSection) {
-            window.addEventListener('scroll', () => {
-                const rect = revealSection.getBoundingClientRect();
-                const vh = window.innerHeight;
-                if (rect.top < vh && rect.bottom > 0) {
-                    const scrollProgress = 1 - (rect.bottom / (vh + rect.height));
-                    const radius = 20 + (Math.max(0, scrollProgress) * 150);
-                    revealInner.style.clipPath = `circle(${radius}% at 50% 50%)`;
-                }
-            });
-        }
-
-        // 3. Staggered Reveal Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(40px)';
-            el.style.transition = 'all 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
-            observer.observe(el);
-
-            // Mutation for visibility
-            const obs = new MutationObserver(() => {
-                if (el.classList.contains('visible')) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-
-                    // Trigger counters if this is the hub section
-                    if (el.classList.contains('command-center-grid')) {
-                        el.querySelectorAll('.counter').forEach(count => {
-                            const target = +count.getAttribute('data-target');
-                            const increment = target / 100;
-                            let current = 0;
-                            const update = () => {
-                                current += increment;
-                                if (current < target) {
-                                    count.innerText = target % 1 === 0 ? Math.ceil(current) : current.toFixed(1);
-                                    setTimeout(update, 20);
-                                } else {
-                                    count.innerText = target;
-                                }
-                            };
-                            update();
-                        });
+            // 2. Invisible Shield Scroll Clip Reveal
+            const revealInner = document.querySelector('.reveal-inner');
+            const revealSection = document.querySelector('.barrier-reveal-section');
+            if (revealInner && revealSection) {
+                window.addEventListener('scroll', () => {
+                    const rect = revealSection.getBoundingClientRect();
+                    const vh = window.innerHeight;
+                    if (rect.top < vh && rect.bottom > 0) {
+                        const scrollProgress = 1 - (rect.bottom / (vh + rect.height));
+                        const radius = 20 + (Math.max(0, scrollProgress) * 150);
+                        revealInner.style.clipPath = `circle(${radius}% at 50% 50%)`;
                     }
-                }
-            });
-            obs.observe(el, { attributes: true, attributeFilter: ['class'] });
-        });
-    </script>
-    <button class="scroll-top" id="scrollTop"><svg viewBox="0 0 24 24">
-            <polyline points="18 15 12 9 6 15" />
-        </svg></button>
-    <script src="js/main.js"></script>
+                });
+            }
+
+            // 3. Staggered Reveal Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(40px)';
+                el.style.transition = 'all 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+                observer.observe(el);
+
+                // Mutation for visibility
+                const obs = new MutationObserver(() => {
+                    if (el.classList.contains('visible')) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+
+                        // Trigger counters if this is the hub section
+                        if (el.classList.contains('command-center-grid')) {
+                            el.querySelectorAll('.counter').forEach(count => {
+                                const target = +count.getAttribute('data-target');
+                                const increment = target / 100;
+                                let current = 0;
+                                const update = () => {
+                                    current += increment;
+                                    if (current < target) {
+                                        count.innerText = target % 1 === 0 ? Math.ceil(current) : current.toFixed(1);
+                                        setTimeout(update, 20);
+                                    } else { count.innerText = target; }
+                                }; update();
+                            });
+                        }
+                    }
+                }); obs.observe(el, {
+                    attributes: true, attributeFilter: ['class']
+                });
+            }); </script>
+        <button class="scroll-top" id="scrollTop"><svg viewBox="0 0 24 24">
+                <polyline points="18 15 12 9 6 15" />
+            </svg></button>
+        <script src="js/main.js"></script>
 </body>
 
 </html>

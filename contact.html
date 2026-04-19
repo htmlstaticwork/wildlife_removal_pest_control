@@ -133,6 +133,57 @@
                 font-size: 1rem !important;
             }
         }
+
+        .contact-hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 85vh;
+            background-image: url('images/biologist.png');
+            background-position: center;
+            background-size: cover;
+            padding: 12rem 1.5rem 4rem;
+            text-align: center;
+            margin-top: -70px;
+        }
+
+        .contact-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(13, 20, 8, 0.95), rgba(13, 20, 8, 0.6));
+            z-index: 1;
+        }
+
+        .contact-hero-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1.5s ease-out;
+            max-width: 800px;
+        }
+
+        .contact-hero h1 {
+            color: white;
+            font-weight: 700;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-hero h1 span {
+            color: #FF1919;
+        }
+
+        .contact-hero-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: clamp(1.1rem, 3vw, 1.25rem);
+            line-height: 1.6;
+            max-width: 600px;
+        }
     </style>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
@@ -195,22 +246,26 @@
         <a href="login.html">Login</a>
     </nav>
 
-    <div class="page-hero" style="background:var(--bg-2); border-bottom:1px solid var(--border);">
-        <span class="section-label" style="color:#FF1919;border-color:rgba(255,25,25,0.2);">Connect Dispatch</span>
-        <h1>Command Center Core.</h1>
-        <p style="color:var(--text-muted);">Transmit your biological sightings and structural breach data for immediate
-            analysis.</p>
-    </div>
+    <!-- ① NEW CONTACT HERO -->
+    <section class="contact-hero">
+        <div class="contact-hero-overlay"></div>
+        <div class="container contact-hero-content">
+            <span class="section-label" style="color:#FF1919; border-color:rgba(255,25,25,0.2);">Expert Support</span>
+            <h1>Service <span>Dispatch.</span></h1>
+            <p class="contact-hero-subtitle">Get immediate assistance for pest outbreaks and wildlife concerns at your
+                property.</p>
+        </div>
+    </section>
 
     <section style="background:var(--bg);">
         <div class="container">
             <div class="contact-grid-premium">
                 <div class="reveal-left">
-                    <span class="section-label" style="color:#FF1919;margin-bottom:2rem;">Intelligence Comms</span>
+                    <span class="section-label" style="color:#FF1919;margin-bottom:2rem;">Support Hub</span>
                     <h2 style="margin-bottom:2rem;color:var(--text);">Establish Connection With Our Specialists.</h2>
                     <p style="margin-bottom:3rem;font-size:1.1rem;line-height:1.7;color:var(--text-muted);">Upon
-                        transmission receipt, our unit will execute a preliminary structural audit and contact your
-                        station within 2 hours.</p>
+                        receiving your request, our team will perform a preliminary property assessment and contact you
+                        within 2 business hours.</p>
 
                     <div style="display:flex;flex-direction:column;gap:2.5rem;">
                         <div style="display:flex;gap:1.5rem;align-items:center;">
@@ -284,9 +339,9 @@
                                 style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;">
                                 <div class="form-group">
                                     <label
-                                        style="font-weight:700;margin-bottom:0.5rem;display:block;color:var(--text-muted);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;">Station
-                                        Representative</label>
-                                    <input type="text" class="form-control" placeholder="Operator Name" required />
+                                        style="font-weight:700;margin-bottom:0.5rem;display:block;color:var(--text-muted);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;">Your
+                                        Name</label>
+                                    <input type="text" class="form-control" placeholder="Full Name" required />
                                 </div>
                                 <div class="form-group">
                                     <label
@@ -295,39 +350,35 @@
                                     <input type="email" class="form-control" placeholder="Return Address" required />
                                 </div>
                             </div>
-                            <div class="form-group" style="margin-bottom:2rem;">
-                                <label
-                                    style="font-weight:700;margin-bottom:0.5rem;display:block;color:var(--text-muted);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;">Tactical
-                                    Location (Address)</label>
-                                <input type="text" class="form-control" placeholder="Zip or Street Address" />
-                            </div>
-                            <div class="form-group" style="margin-bottom:2rem;">
-                                <label
-                                    style="font-weight:700;margin-bottom:0.5rem;display:block;color:var(--text-muted);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;">Adversarial
-                                    ID (Wildlife Type)</label>
-                                <select class="form-control">
-                                    <option>Chiropteran Assessment (Bats)</option>
-                                    <option>Procyonid Breach (Raccoons)</option>
-                                    <option>Rodent Intrusion Cluster</option>
-                                    <option>Avian Peak Conflict</option>
-                                    <option>TOTAL Structural Audit</option>
-                                </select>
-                            </div>
-                            <div class="form-group" style="margin-bottom:3rem;">
-                                <label
-                                    style="font-weight:700;margin-bottom:0.5rem;display:block;color:var(--text-muted);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;">Intel
-                                    Details</label>
-                                <textarea class="form-control"
-                                    placeholder="Describe the adversarial behavior, breach timing, and location signatures."
-                                    style="min-height:180px;"></textarea>
-                            </div>
-                            <button type="submit" class="btn-primary"
-                                style="width:100%;justify-content:center;padding:1.4rem;font-size:1.1rem;background:#FF1919;border-color:#FF1919;">Transmit
-                                Signal</button>
-                        </form>
+                            Property Address</label>
+                            <input type="text" class="form-control" placeholder="Zip or Street Address" />
                     </div>
+                    <div class="form-group" style="margin-bottom:2rem;">
+                        <label
+                            style="font-weight:700;margin-bottom:0.5rem;display:block;color:var(--text-muted);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;">Pest/Wildlife
+                            Issue</label>
+                        <select class="form-control">
+                            <option>Bat Removal & Prevention</option>
+                            <option>Raccoon Control & Removal</option>
+                            <option>Rodent Mitigation</option>
+                            <option>Bird Control</option>
+                            <option>Full Property Inspection</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom:3rem;">
+                        <label
+                            style="font-weight:700;margin-bottom:0.5rem;display:block;color:var(--text-muted);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;">Message
+                            Details</label>
+                        <textarea class="form-control" placeholder="Please describe your wildlife or pest concerns."
+                            style="min-height:180px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary"
+                        style="width:100%;justify-content:center;padding:1.4rem;font-size:1.1rem;background:#FF1919;border-color:#FF1919;">Send
+                        Request</button>
+                    </form>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -396,13 +447,13 @@
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const btn = this.querySelector('button[type="submit"]');
-            btn.textContent = 'TRANSMITTING SIGNAL...';
+            btn.textContent = 'SENDING...';
             btn.disabled = true;
             setTimeout(() => {
-                btn.textContent = '✓ TRANSMISSION SUCCESS';
+                btn.textContent = '✓ REQUEST SENT';
                 btn.style.background = '#00ff7f';
                 btn.style.borderColor = '#00ff7f';
-                setTimeout(() => { btn.textContent = 'Transmit Signal'; btn.style.background = ''; btn.style.borderColor = ''; btn.disabled = false; this.reset(); }, 4000);
+                setTimeout(() => { btn.textContent = 'Send Request'; btn.style.background = ''; btn.style.borderColor = ''; btn.disabled = false; this.reset(); }, 4000);
             }, 2000);
         });
     </script>

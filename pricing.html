@@ -119,6 +119,57 @@
                 margin: 0 auto;
             }
         }
+
+        .pricing-hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 85vh;
+            background-image: url('images/protected_home.png');
+            background-position: center;
+            background-size: cover;
+            padding: 12rem 1.5rem 4rem;
+            text-align: center;
+            margin-top: -70px;
+        }
+
+        .pricing-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(13, 20, 8, 0.95), rgba(13, 20, 8, 0.6));
+            z-index: 1;
+        }
+
+        .pricing-hero-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1.5s ease-out;
+            max-width: 800px;
+        }
+
+        .pricing-hero h1 {
+            color: white;
+            font-weight: 700;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-hero h1 span {
+            color: #FF1919;
+        }
+
+        .pricing-hero-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: clamp(1.1rem, 3vw, 1.25rem);
+            line-height: 1.6;
+            max-width: 600px;
+        }
     </style>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
@@ -181,19 +232,23 @@
         <a href="login.html">Login</a>
     </nav>
 
-    <div class="page-hero" style="background: var(--bg-2); border-bottom: 1px solid var(--border);">
-        <span class="section-label" style="color:#FF1919;border-color:rgba(255,25,25,0.2);">Investment Command</span>
-        <h1>Tiered Immunity Plans.</h1>
-        <p style="color:var(--text-muted);">Providing the most aggressive property security metrics in the modern
-            biological market.</p>
-    </div>
+    <!-- ① NEW PRICING HERO -->
+    <section class="pricing-hero">
+        <div class="pricing-hero-overlay"></div>
+        <div class="container pricing-hero-content">
+            <span class="section-label" style="color:#FF1919; border-color:rgba(255,25,25,0.2);">Plan Selection</span>
+            <h1>Wildlife & Pest <span>Control Plans.</span></h1>
+            <p class="pricing-hero-subtitle">Scalable, transparent, and effective removal and prevention packages for
+                every property.</p>
+        </div>
+    </section>
 
     <section style="background:var(--bg);padding:8rem 0;">
         <div class="container">
             <div class="grid-3 pricing-grid-tablet" style="gap:2.5rem;align-items:stretch;margin-bottom:8rem;">
                 <!-- Plan 1 -->
                 <div class="pricing-card-premium reveal delay-1">
-                    <span class="section-label" style="margin-bottom:1rem;color:#FF1919;">TACTICAL.01</span>
+                    <span class="section-label" style="margin-bottom:1rem;color:#FF1919;">STANDARD INSPECTION</span>
                     <div class="price-value">$149</div>
                     <div class="price-sub">Inspection Run</div>
                     <ul class="pricing-list">
@@ -229,7 +284,7 @@
 
                 <!-- Plan 3 -->
                 <div class="pricing-card-premium reveal delay-3">
-                    <span class="section-label" style="margin-bottom:1rem;color:#FF1919;">ELITE ELITE</span>
+                    <span class="section-label" style="margin-bottom:1rem;color:#FF1919;">FULL PREVENTION</span>
                     <div class="price-value">$99</div>
                     <div class="price-sub">Concierge Command Access</div>
                     <ul class="pricing-list">
@@ -246,12 +301,12 @@
             </div>
 
             <div style="text-align:center;" class="reveal">
-                <span class="section-label" style="color:#FF1919;">Sector Command</span>
-                <h2 style="color:var(--text);">Custom Operational Matrix?</h2>
-                <p style="margin-bottom:3rem;color:var(--text-muted);">We architect complex biological defense for
-                    multi-sector corporate assets.</p>
+                <span class="section-label" style="color:#FF1919;">Enterprise Solutions</span>
+                <h2 style="color:var(--text);">Custom Operational Protocol?</h2>
+                <p style="margin-bottom:3rem;color:var(--text-muted);">We provide complex biological defense for
+                    multi-site corporate assets.</p>
                 <a href="contact.html" class="btn-primary" style="background:#FF1919;border-color:#FF1919;">Contact
-                    Elite Fleet</a>
+                    Commercial Team</a>
             </div>
         </div>
     </section>

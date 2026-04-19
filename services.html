@@ -40,14 +40,17 @@
 
         .card-id-badge {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-size: 0.65rem;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: #FF1919;
-            opacity: 0.5;
+            color: #fff;
+            background: rgba(255, 25, 25, 0.85);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
             font-weight: 700;
+            z-index: 5;
         }
 
         @media (max-width: 480px) {
@@ -56,201 +59,56 @@
             }
         }
 
-        /* 3D SLIDESHOW HERO STYLES */
-        .slideshow {
-            margin: 0 auto;
-            padding: 80px 0;
-            height: 700px;
-            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #450a0a, #020617);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            box-sizing: border-box;
+        .services-hero {
             position: relative;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            min-height: 85vh;
+            background-image: url('images/technician.png');
+            background-position: center;
+            background-size: cover;
+            padding: 12rem 1.5rem 4rem;
+            text-align: center;
+            margin-top: -70px;
         }
 
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+        .services-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(13, 20, 8, 0.9), rgba(13, 20, 8, 0.5));
+            z-index: 1;
         }
 
-        .slideshow-content-wrapper {
+        .services-hero-content {
             position: relative;
             z-index: 10;
-            text-align: center;
-            width: 100%;
-            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1.5s ease-out;
+            max-width: 800px;
         }
 
-        .slideshow-text {
-            margin-bottom: 400px;
-            pointer-events: auto;
+        .services-hero h1 {
+            color: white;
+            font-weight: 700;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
         }
 
-        .content {
-            margin: auto;
-            width: 190px;
-            perspective: 1000px;
-            position: absolute;
-            top: 55%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .services-hero h1 span {
+            color: #FF1919;
         }
 
-        .content-carrousel {
-            width: 100%;
-            position: absolute;
-            animation: rotateit 20s infinite linear;
-            transform-style: preserve-3d;
-            pointer-events: auto;
-        }
-
-        .content-carrousel:hover {
-            animation-play-state: paused;
-            cursor: pointer;
-        }
-
-        .content-carrousel figure {
-            width: 100%;
-            height: 120px;
-            border: 1px solid rgba(255, 25, 25, 0.3);
-            overflow: hidden;
-            position: absolute;
-            background: #000;
-        }
-
-        .content-carrousel figure:nth-child(1) {
-            transform: rotateY(0deg) translateZ(300px);
-        }
-
-        .content-carrousel figure:nth-child(2) {
-            transform: rotateY(40deg) translateZ(300px);
-        }
-
-        .content-carrousel figure:nth-child(3) {
-            transform: rotateY(80deg) translateZ(300px);
-        }
-
-        .content-carrousel figure:nth-child(4) {
-            transform: rotateY(120deg) translateZ(300px);
-        }
-
-        .content-carrousel figure:nth-child(5) {
-            transform: rotateY(160deg) translateZ(300px);
-        }
-
-        .content-carrousel figure:nth-child(6) {
-            transform: rotateY(200deg) translateZ(300px);
-        }
-
-        .content-carrousel figure:nth-child(7) {
-            transform: rotateY(240deg) translateZ(300px);
-        }
-
-        .content-carrousel figure:nth-child(8) {
-            transform: rotateY(280deg) translateZ(300px);
-        }
-
-        .content-carrousel figure:nth-child(9) {
-            transform: rotateY(320deg) translateZ(300px);
-        }
-
-        .shadow {
-            position: absolute;
-            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
-            border-radius: 4px;
-        }
-
-        .content-carrousel img {
-            image-rendering: auto;
-            transition: all 300ms;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .content-carrousel img:hover {
-            transform: scale(1.2);
-        }
-
-        @keyframes rotateit {
-            from {
-                transform: rotateY(0deg);
-            }
-
-            to {
-                transform: rotateY(360deg);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .slideshow {
-                height: 600px;
-            }
-
-            .content {
-                width: 150px;
-                perspective: 800px;
-                top: 60%;
-            }
-
-            .content-carrousel figure:nth-child(1) {
-                transform: rotateY(0deg) translateZ(220px);
-            }
-
-            .content-carrousel figure:nth-child(2) {
-                transform: rotateY(40deg) translateZ(220px);
-            }
-
-            .content-carrousel figure:nth-child(3) {
-                transform: rotateY(80deg) translateZ(220px);
-            }
-
-            .content-carrousel figure:nth-child(4) {
-                transform: rotateY(120deg) translateZ(220px);
-            }
-
-            .content-carrousel figure:nth-child(5) {
-                transform: rotateY(160deg) translateZ(220px);
-            }
-
-            .content-carrousel figure:nth-child(6) {
-                transform: rotateY(200deg) translateZ(220px);
-            }
-
-            .content-carrousel figure:nth-child(7) {
-                transform: rotateY(240deg) translateZ(220px);
-            }
-
-            .content-carrousel figure:nth-child(8) {
-                transform: rotateY(280deg) translateZ(220px);
-            }
-
-            .content-carrousel figure:nth-child(9) {
-                transform: rotateY(320deg) translateZ(220px);
-            }
-
-            .visual-command-grid {
-                grid-template-columns: 1fr !important;
-                gap: 2.5rem !important;
-                padding: 3rem 1.5rem !important;
-            }
-
-            .visual-command-image {
-                height: 360px !important;
-            }
+        .services-hero-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: clamp(1.1rem, 3vw, 1.25rem);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            max-width: 600px;
         }
 
         @media (max-width: 1024px) {
@@ -320,47 +178,15 @@
         <a href="login.html">Login</a>
     </nav>
 
-    <section class="slideshow">
-        <div class="slideshow-content-wrapper">
-            <div class="slideshow-text">
-                <span class="section-label"
-                    style="color:#007bff;border:none;background:none;padding:0;backdrop-filter:none;">Combat
-                    Ready Protocols</span>
-                <h1 style="color:#fff;margin:1.5rem 0;font-size:clamp(2rem, 6vw, 3.5rem);">Tactical Biological<br><span
-                        style="color:#FF1919;">Intervention</span></h1>
-                <p style="color:rgba(255,255,255,0.7);max-width:600px;margin:0 auto;">Precision exclusion protocols
-                    designed for the most aggressive intrusion scenarios.</p>
-            </div>
-        </div>
-
-        <div class="content">
-            <div class="content-carrousel">
-                <figure class="shadow"><img
-                        src="https://images.pexels.com/photos/4404964/pexels-photo-4404964.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-                        alt=""></figure>
-                <figure class="shadow"><img
-                        src="https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-                        alt=""></figure>
-                <figure class="shadow"><img
-                        src="https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt=""></figure>
-                <figure class="shadow"><img
-                        src="https://images.pexels.com/photos/230629/pexels-photo-230629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt=""></figure>
-                <figure class="shadow"><img
-                        src="https://images.pexels.com/photos/2745258/pexels-photo-2745258.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-                        alt=""></figure>
-                <figure class="shadow"><img
-                        src="https://images.pexels.com/photos/2681631/pexels-photo-2681631.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt=""></figure>
-                <figure class="shadow"><img
-                        src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=800&q=80" alt=""></figure>
-                <figure class="shadow"><img
-                        src="https://images.pexels.com/photos/2745259/pexels-photo-2745259.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt=""></figure>
-                <figure class="shadow"><img
-                        src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80" alt=""></figure>
-            </div>
+    <!-- ① NEW SERVICES HERO -->
+    <section class="services-hero">
+        <div class="services-hero-overlay"></div>
+        <div class="container services-hero-content">
+            <span class="section-label" style="color:#FF1919; border-color:rgba(255,25,25,0.3);">Expert
+                Protocols</span>
+            <h1>Wildlife & Pest<br><span>Eradication.</span></h1>
+            <p class="services-hero-subtitle">Comprehensive removal and prevention services for all common household
+                pests and invasive wildlife.</p>
         </div>
     </section>
 
@@ -372,46 +198,43 @@
             <div class="grid-3" style="gap:2.5rem;margin-bottom:8rem;">
                 <div class="service-card-premium reveal delay-1">
                     <div class="service-card-media">
-                        <img src="https://images.unsplash.com/photo-1516934024742-b461fba47600?w=900&q=80"
-                            alt="Bat inspection and attic shielding">
+                        <img src="images/squirrel_removal.png" alt="Humane Wildlife Extraction">
                     </div>
-                    <span class="card-id-badge">ALPHA.01</span>
-                    <div style="font-size:2.5rem;margin-bottom:1.5rem;color:#FF1919;">Bat</div>
-                    <h3 style="color:var(--text);">Nocturnal Shielding</h3>
-                    <p style="margin-bottom:2rem;color:var(--text-muted);">Exhaustive attic audits followed by one-way
-                        expulsion and full peak isolation for chiropteran management.</p>
+                    <span class="card-id-badge">Extraction</span>
+                    <div style="font-size:2.5rem;margin-bottom:1.5rem;color:#FF1919;">Wildlife</div>
+                    <h3 style="color:var(--text);">Humane Extraction</h3>
+                    <p style="margin-bottom:2rem;color:var(--text-muted);">Safe and ethical removal of raccoons,
+                        squirrels, bats, and other wildlife from your property without harmful traps.</p>
                 </div>
                 <div class="service-card-premium reveal delay-2">
                     <div class="service-card-media">
-                        <img src="https://images.unsplash.com/photo-1520315342629-6ea920342047?w=900&q=80"
-                            alt="Raccoon exclusion defense setup">
+                        <img src="images/step_inspect.png" alt="Professional Pest Inspection">
                     </div>
-                    <span class="card-id-badge">ALPHA.02</span>
-                    <div style="font-size:2.5rem;margin-bottom:1.5rem;color:#FF1919;">Rac</div>
-                    <h3 style="color:var(--text);">Apex Defense</h3>
-                    <p style="margin-bottom:2rem;color:var(--text-muted);">Tactical procyonid exclusion using behavioral
-                        counter-measures and multi-point sealing strategies.</p>
+                    <span class="card-id-badge">Prevention</span>
+                    <div style="font-size:2.5rem;margin-bottom:1.5rem;color:#FF1919;">Pests</div>
+                    <h3 style="color:var(--text);">Targeted Pest Control</h3>
+                    <p style="margin-bottom:2rem;color:var(--text-muted);">Effective elimination of ants, spiders,
+                        roaches, and termites using eco-friendly, non-toxic treatment protocols.</p>
                 </div>
                 <div class="service-card-premium reveal delay-3">
                     <div class="service-card-media">
-                        <img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=900&q=80"
-                            alt="Rodent barrier and protection focus">
+                        <img src="images/technician.png" alt="Elite Rodent Exclusion">
                     </div>
-                    <span class="card-id-badge">ALPHA.03</span>
-                    <div style="font-size:2.5rem;margin-bottom:1.5rem;color:#FF1919;">Rod</div>
-                    <h3 style="color:var(--text);">Rodent Barrier Core</h3>
-                    <p style="margin-bottom:2rem;color:var(--text-muted);">Installation of extreme carbon-steel mesh
-                        components. We make your property a biological dead-zone for rodents.</p>
+                    <span class="card-id-badge">Exclusion</span>
+                    <div style="font-size:2.5rem;margin-bottom:1.5rem;color:#FF1919;">Rodents</div>
+                    <h3 style="color:var(--text);">Rodent Sterilization</h3>
+                    <p style="margin-bottom:2rem;color:var(--text-muted);">Complete elimination of rats and mice,
+                        followed by commercial-grade sanitization of affected areas.</p>
                 </div>
             </div>
 
             <div class="visual-command-grid"
                 style="background:var(--bg-2);border-radius:40px;padding:6rem 4rem;display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:center;border:1px solid var(--border);">
                 <div class="reveal-left">
-                    <span class="section-label" style="color:#FF1919;">Visual Command</span>
-                    <h2 style="color:var(--text);">Transformation of Force.</h2>
-                    <p style="margin-bottom:2.5rem;color:var(--text-muted);">Witness the precision of our high-contrast
-                        defense systems in high-risk environments.</p>
+                    <span class="section-label" style="color:#FF1919;">Proven Accuracy</span>
+                    <h2 style="color:var(--text);">Proven Pest Defense.</h2>
+                    <p style="margin-bottom:2.5rem;color:var(--text-muted);">Our specialized teams handle the toughest
+                        pest challenges with surgical precision and long-term warranties.</p>
                     <div class="glass"
                         style="padding:1.5rem;border-radius:20px;margin-bottom:1.5rem;background:var(--bg-card);border:1px solid var(--border);">
                         <div style="color:var(--error);font-weight:700;font-size:1.4rem;">Compromised</div>
@@ -427,12 +250,12 @@
                 <div class="reveal-right">
                     <div class="visual-command-image"
                         style="position:relative;height:500px;border-radius:32px;overflow:hidden;box-shadow:var(--shadow-lg);">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1000&q=80"
-                            style="width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(0.9);" />
+                        <img src="images/biologist.png"
+                            style="width:100%;height:100%;object-fit:cover;filter:brightness(0.9);" />
                         <div
                             style="position:absolute;bottom:2rem;left:2rem;right:2rem;display:flex;justify-content:space-between;color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;background:rgba(255, 25, 25, 0.4);backdrop-filter:blur(10px);padding:1rem 2rem;border-radius:50px;border:1px solid rgba(255,255,255,0.2);">
-                            <span>Defense Unit.01</span>
-                            <span>Seattle Sector</span>
+                            <span>Service Unit 01</span>
+                            <span>Portland Metro Sector</span>
                         </div>
                     </div>
                 </div>
@@ -443,8 +266,8 @@
     <section style="background:var(--bg);padding:8rem 0;">
         <div class="container">
             <div style="text-align:center;margin-bottom:4rem;" class="reveal">
-                <span class="section-label" style="color:#FF1919;">Defense Science</span>
-                <h2 style="color:var(--text);text-align:center;">Military-Grade Hardware</h2>
+                <span class="section-label" style="color:#FF1919;">Pest Science</span>
+                <h2 style="color:var(--text);text-align:center;">Eco-Friendly Elimination</h2>
             </div>
             <div class="grid-4" style="gap:1.5rem;">
                 <div class="card reveal delay-1"
@@ -460,8 +283,7 @@
                 </div>
                 <div class="card reveal delay-2"
                     style="background:var(--bg-card);border:1px solid var(--border);padding:0;overflow:hidden;">
-                    <img src="https://images.pexels.com/photos/3825581/pexels-photo-3825581.jpeg?auto=compress&cs=tinysrgb&w=600&h=350&fit=crop"
-                        alt="Bio-counter solvents and chemical treatment"
+                    <img src="images/technician.png" alt="Eco-friendly pest control application"
                         style="width:100%;height:180px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0;" />
                     <div style="padding:1.5rem;">
                         <h4 style="color:var(--text);">Bio-Counter Solvents</h4>
@@ -482,8 +304,7 @@
                 </div>
                 <div class="card reveal delay-4"
                     style="background:var(--bg-card);border:1px solid var(--border);padding:0;overflow:hidden;">
-                    <img src="https://images.pexels.com/photos/3862378/pexels-photo-3862378.jpeg?auto=compress&cs=tinysrgb&w=600&h=350&fit=crop"
-                        alt="Infrared thermal auditing camera"
+                    <img src="images/protected_home.png" alt="Fully protected property"
                         style="width:100%;height:180px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0;" />
                     <div style="padding:1.5rem;">
                         <h4 style="color:var(--text);">Infrared Auditing</h4>

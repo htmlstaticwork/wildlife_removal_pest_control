@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard — Humane Operative Portal</title>
+    <title>Dashboard — Humane Customer Portal</title>
     <link rel="stylesheet" href="css/dashboard.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap"
@@ -30,7 +30,8 @@
             backdrop-filter: blur(10px);
         }
     </style>
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
 </head>
 
 <body>
@@ -39,19 +40,27 @@
         <!-- SIDEBAR -->
         <aside class="sidebar" id="sidebar">
             <a href="index.html" class="sidebar-logo">
-                <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" /></svg></span>
+                <span class="logo-mark"><svg viewBox="0 0 24 24">
+                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
+                    </svg></span>
                 Humane
             </a>
 
             <div class="nav-group">
-                <div class="nav-label">Command Center</div>
-                <a href="#" class="nav-link active" data-view="overview"><span>📊</span> Intelligence Overview</a>
+                <div class="nav-label">Service Management</div>
+                <a href="#" class="nav-link active" data-view="overview"><span>📊</span> Service Overview</a>
             </div>
 
             <div class="nav-group">
-                <div class="nav-label">Tactical Support</div>
-                <a href="#" class="nav-link" data-view="barriers"><span>🛡️</span> Active Barriers</a>
-                <a href="#" class="nav-link" data-view="alerts"><span>🛑</span> Perimeter Alert</a>
+                <div class="nav-label">Security & Prevention</div>
+                <a href="#" class="nav-link" data-view="barriers"><span>🛡️</span> Property Barriers</a>
+                <a href="#" class="nav-link" data-view="alerts"><span>🛑</span> Motion Alerts</a>
+            </div>
+
+            <div class="nav-group">
+                <div class="nav-label">Support & Resources</div>
+                <a href="#" class="nav-link" data-view="history"><span>📅</span> Service History</a>
+                <a href="#" class="nav-link" data-view="specialists"><span>👨‍🔬</span> Specialist Hub</a>
             </div>
 
             <div class="sidebar-footer">
@@ -73,7 +82,7 @@
                 </div>
                 <a href="index.html" class="nav-link"
                     style="color:#FF1919; font-weight:700; border:1px solid rgba(255,25,25,0.1); background:rgba(255,25,25,0.05); justify-content:center; margin-top:0.5rem;">
-                    <span>🚪</span> Terminate Session
+                    <span>🚪</span> Logout
                 </a>
             </div>
         </aside>
@@ -84,15 +93,15 @@
                 <div style="display:flex;align-items:center;">
                     <button class="sidebar-toggle" id="sidebarToggle">☰</button>
                     <div class="page-title">
-                        <h2>Operative Overview</h2>
-                        <p>Station: Sector 7 — Portland Core — Status: <span style="color:var(--success);">Online</span>
+                        <h2>Service Overview</h2>
+                        <p>Service Zone: Portland Core — Status: <span style="color:var(--success);">Active</span>
                         </p>
                     </div>
                 </div>
                 <div class="topbar-actions">
                     <div class="notification-btn"><span class="notif-badge"></span><span>🔔</span></div>
                     <div class="user-profile">
-                        <span style="font-weight:700;font-size:0.9rem;">Op. Jane Doe</span>
+                        <span style="font-weight:700;font-size:0.9rem;">Jane Doe</span>
                         <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Avatar"
                             class="user-avatar" />
                     </div>
@@ -106,22 +115,22 @@
                     <div class="metric-card">
                         <div class="metric-icon" style="color:var(--success);">📡</div>
                         <div class="metric-value">Active</div>
-                        <div class="metric-label">Signal Status</div>
+                        <div class="metric-label">System Status</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-icon" style="color:#FF1919;">🛑</div>
                         <div class="metric-value">02</div>
-                        <div class="metric-label">Breach Alerts</div>
+                        <div class="metric-label">Recent Alerts</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-icon" style="color:var(--warning);">🛡️</div>
                         <div class="metric-value">14</div>
-                        <div class="metric-label">Barriers Monitoring</div>
+                        <div class="metric-label">Barriers Monitored</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-icon" style="color:#1e90ff;">📋</div>
                         <div class="metric-value">08</div>
-                        <div class="metric-label">Quiscent Points</div>
+                        <div class="metric-label">Safe Points</div>
                     </div>
                 </div>
 
@@ -129,43 +138,43 @@
                 <div class="dashboard-main-grid">
                     <div class="table-container">
                         <div class="table-header">
-                            <h3>Active Structural Protocols</h3><button class="btn-dash"
-                                style="padding:0.5rem 1.25rem;">New
-                                Defense Run</button>
+                            <h3>Active Prevention Protocols</h3><button class="btn-dash"
+                                style="padding:0.5rem 1.25rem;">Request
+                                Inspection</button>
                         </div>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Target Species</th>
-                                    <th>Protocol Status</th>
-                                    <th>Last Signal</th>
-                                    <th>Operational Node</th>
+                                    <th>Target Pest/Wildlife</th>
+                                    <th>Status</th>
+                                    <th>Last Activity</th>
+                                    <th>Service Location</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Chiropteran (Bats)</td>
-                                    <td><span class="status status-active">Shielded</span></td>
-                                    <td>12:45:00 UTC</td>
-                                    <td>North Peak Ridge</td>
+                                    <td>Bats</td>
+                                    <td><span class="status status-active">Protected</span></td>
+                                    <td>12:45:00 PM</td>
+                                    <td>North Roof Ridge</td>
                                 </tr>
                                 <tr>
-                                    <td>Procyonid (Raccoons)</td>
-                                    <td><span class="status status-alert">In Breach</span></td>
-                                    <td>02:15:30 UTC</td>
-                                    <td>East Dormer 02</td>
+                                    <td>Raccoons</td>
+                                    <td><span class="status status-alert">Detected</span></td>
+                                    <td>02:15:30 AM</td>
+                                    <td>East Eaves</td>
                                 </tr>
                                 <tr>
-                                    <td>Rodent (Mice)</td>
-                                    <td><span class="status status-pending">Excluding</span></td>
+                                    <td>Rodents</td>
+                                    <td><span class="status status-pending">In Progress</span></td>
                                     <td>Just Now</td>
-                                    <td>Basement Core</td>
+                                    <td>Foundation Core</td>
                                 </tr>
                                 <tr>
-                                    <td>Avian (Birds)</td>
-                                    <td><span class="status status-active">Neutralized</span></td>
+                                    <td>Birds</td>
+                                    <td><span class="status status-active">Resolved</span></td>
                                     <td>Yesterday</td>
-                                    <td>West Soffit A-4</td>
+                                    <td>West Soffit</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -173,39 +182,24 @@
 
                     <div class="table-container" style="padding:2rem;">
                         <div class="table-header">
-                            <h3>Rapid Sighting Log</h3>
+                            <h3>Next Scheduled Maintenance</h3>
                         </div>
-                        <div style="display:flex;flex-direction:column;gap:1.5rem;">
-                            <div class="glass"
-                                style="padding:1rem;border-radius:12px;background:rgba(255, 25, 25, 0.05);border:1px solid rgba(255, 25, 25, 0.1);">
-                                <div
-                                    style="font-size:0.7rem;text-transform:uppercase;color:#FF1919;font-weight:700;margin-bottom:0.5rem;">
-                                    03:14:00 AM — Alert</div>
-                                <p style="font-size:0.85rem;margin:0;color:var(--dash-text);">Thermal signature detected
-                                    at
-                                    Dormer 02.</p>
+                        <div class="glass"
+                            style="padding:1.5rem; border-radius:16px; background:rgba(45, 80, 22, 0.05); border:1px solid rgba(45, 80, 22, 0.1); display:flex; gap:1.5rem; align-items:center;">
+                            <div
+                                style="background:var(--dash-primary); color:#fff; padding:1rem; border-radius:12px; text-align:center; min-width:80px;">
+                                <div style="font-size:0.8rem; text-transform:uppercase; font-weight:700;">May</div>
+                                <div style="font-size:1.8rem; font-weight:700; line-height:1;">12</div>
                             </div>
-                            <div class="glass"
-                                style="padding:1rem;border-radius:12px;background:rgba(0, 0, 0, 0.02);border:1px solid var(--dash-border);">
-                                <div
-                                    style="font-size:0.7rem;text-transform:uppercase;color:var(--dash-text-muted);font-weight:700;margin-bottom:0.5rem;">
-                                    YESTERDAY — Update</div>
-                                <p style="font-size:0.85rem;margin:0;color:var(--dash-text);">Vent sealant cure complete
-                                    at
-                                    North Peak.</p>
-                            </div>
-                            <div class="glass"
-                                style="padding:1rem;border-radius:12px;background:rgba(0, 0, 0, 0.02);border:1px solid var(--dash-border);">
-                                <div
-                                    style="font-size:0.7rem;text-transform:uppercase;color:var(--dash-text-muted);font-weight:700;margin-bottom:0.5rem;">
-                                    2 DAYS AGO — Update</div>
-                                <p style="font-size:0.85rem;margin:0;color:var(--dash-text);">Primary exclusion valves
-                                    deployed in attic sector B.</p>
+                            <div>
+                                <h4 style="margin-bottom:0.25rem;">Annual Structural Audit</h4>
+                                <p style="font-size:0.85rem; margin:0; color:var(--dash-text-muted);">Assigned: Senior
+                                    Specialist Marcus Thorne</p>
+                                <a href="#"
+                                    style="color:var(--dash-primary); font-size:0.85rem; font-weight:700; text-decoration:none; margin-top:0.5rem; display:block;">Reschedule
+                                    Appointment →</a>
                             </div>
                         </div>
-                        <a href="#" class="btn-dash"
-                            style="width:100%;margin-top:2rem;justify-content:center;background:rgba(0,0,0,0.05);color:var(--dash-text);border:1px solid var(--dash-border);">View
-                            Full Intel Log</a>
                     </div>
                 </div>
             </div>
@@ -214,21 +208,21 @@
             <div id="view-barriers" class="dashboard-view" style="display:none;">
                 <div class="table-container">
                     <div class="table-header">
-                        <h3>Structural Defense Nodes</h3>
+                        <h3>Structural Prevention Nodes</h3>
                         <button class="btn-dash">Scan All Barriers</button>
                     </div>
                     <p style="margin-bottom:2rem;color:var(--dash-text-muted);">Real-time integrity monitoring of
-                        carbon-steel exclusion zones.</p>
+                        exclusion zones.</p>
                     <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:2rem;">
                         <div class="metric-card">
                             <div style="font-weight:700;margin-bottom:1rem;">Node PNW-01</div>
                             <div style="font-size:0.85rem;color:var(--dash-text-muted);">Status: <span
-                                    style="color:var(--success);">Inert</span></div>
+                                    style="color:var(--success);">Intact</span></div>
                         </div>
                         <div class="metric-card">
                             <div style="font-weight:700;margin-bottom:1rem;">Node PNW-07</div>
                             <div style="font-size:0.85rem;color:var(--dash-text-muted);">Status: <span
-                                    style="color:var(--success);">Inert</span></div>
+                                    style="color:var(--success);">Intact</span></div>
                         </div>
                     </div>
                 </div>
@@ -238,7 +232,7 @@
             <div id="view-alerts" class="dashboard-view" style="display:none;">
                 <div class="table-container">
                     <div class="table-header">
-                        <h3>Perimeter Breach Log</h3>
+                        <h3>Motion Alert Log</h3>
                         <button class="btn-dash" style="background:var(--warning);">Clear All Alerts</button>
                     </div>
                     <table>
@@ -253,12 +247,81 @@
                         <tbody>
                             <tr>
                                 <td>03:14 AM</td>
-                                <td>Thermal Spike</td>
-                                <td>Dormer 02</td>
+                                <td>Motion Detected</td>
+                                <td>Eaves 02</td>
                                 <td><span class="status status-alert">High</span></td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+
+            <!-- HISTORY VIEW -->
+            <div id="view-history" class="dashboard-view" style="display:none;">
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3>Service Intervention Archive</h3>
+                        <button class="btn-dash" style="background:#4a5568;">Download Reports (PDF)</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Service Type</th>
+                                <th>Outcome</th>
+                                <th>Specialist</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>April 02, 2026</td>
+                                <td>Exclusion Reinforcement</td>
+                                <td><span class="status status-active">Successful</span></td>
+                                <td>Marcus Thorne</td>
+                            </tr>
+                            <tr>
+                                <td>March 15, 2026</td>
+                                <td>Initial Site Survey</td>
+                                <td><span class="status status-active">Complete</span></td>
+                                <td>Sarah Jenkins</td>
+                            </tr>
+                            <tr>
+                                <td>Feb 28, 2026</td>
+                                <td>Emergency Extraction</td>
+                                <td><span class="status status-active">Resolved</span></td>
+                                <td>Marcus Thorne</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SPECIALISTS VIEW -->
+            <div id="view-specialists" class="dashboard-view" style="display:none;">
+                <div class="grid-2">
+                    <div class="table-container" style="text-align:center;">
+                        <img src="images/technician.png"
+                            style="width:120px; height:120px; border-radius:50%; object-fit:cover; border:3px solid var(--dash-primary); margin-bottom:1.5rem;"
+                            alt="Marcus Thorne">
+                        <h3>Marcus Thorne</h3>
+                        <p style="color:var(--dash-primary); font-weight:700; font-size:0.9rem; margin-bottom:1.5rem;">
+                            Senior Field Specialist</p>
+                        <p style="font-size:0.9rem; color:var(--dash-text-muted); margin-bottom:2rem;">Certified in
+                            Advanced Wildlife Behavior and Structural Forensics. Serving Portland Metro since 2018.</p>
+                        <div style="display:flex; gap:1rem; justify-content:center;">
+                            <button class="btn-dash" style="padding:0.75rem 1.5rem;">Contact Specialist</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <h3>Specialist Assessment Notes</h3>
+                        <div style="margin-top:2rem; border-left:3px solid var(--dash-primary); padding-left:1.5rem;">
+                            <p style="font-style:italic; line-height:1.6; color:var(--dash-text);">"Property integrity
+                                is currently at 94%. We've successfully barred the primary bat colony exit points.
+                                Recommendation: Monthly sonar scans to monitor for secondary breach attempts."</p>
+                            <span style="font-size:0.8rem; font-weight:700; display:block; margin-top:1rem;">— Logged
+                                April 02</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

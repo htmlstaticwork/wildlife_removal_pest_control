@@ -46,7 +46,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=50') center/cover;
+            background: url('images/hero_main.png') center/cover;
             opacity: 0.15;
             filter: grayscale(1) brightness(0.8);
         }
@@ -68,18 +68,32 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6rem;
-            font-family: var(--font-display);
-            font-size: 1.4rem;
+            gap: 0.85rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #FF1919;
             text-decoration: none;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
             margin-bottom: 3rem;
             white-space: nowrap;
         }
 
         .logo-mark {
             background: #FF1919;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(255, 25, 25, 0.3);
+        }
+
+        .logo-mark svg {
+            width: 18px;
+            height: 18px;
+            fill: #fff;
         }
 
         .form-group {
@@ -222,18 +236,18 @@
         <a href="index.html" class="auth-logo"><span class="logo-mark"><svg viewBox="0 0 24 24">
                     <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
                 </svg></span>Humane</a>
-        <h2 style="color:var(--text);margin-bottom:1rem;text-align:center;">Station Request</h2>
-        <p style="color:var(--text-muted);text-align:center;margin-bottom:3rem;font-size:0.9rem;">Initiate new member
-            status and structural protection core.</p>
+        <h2 style="color:var(--text);margin-bottom:1rem;text-align:center;">Create Account</h2>
+        <p style="color:var(--text-muted);text-align:center;margin-bottom:3rem;font-size:0.9rem;">Start your journey to
+            a safer, pest-free home environment.</p>
         <form id="registerForm">
-            <div class="form-group"><label>First Identification</label><input type="text" class="form-control"
-                    name="first" placeholder="" required /></div>
-            <div class="form-group"><label>Last Identification</label><input type="text" class="form-control"
-                    name="last" placeholder="" required /></div>
-            <div class="form-group"><label>Station Link (Email)</label><input type="email" class="form-control"
-                    name="email" placeholder="" required /></div>
+            <div class="form-group"><label>First Name</label><input type="text" class="form-control" name="first"
+                    placeholder="" required /></div>
+            <div class="form-group"><label>Last Name</label><input type="text" class="form-control" name="last"
+                    placeholder="" required /></div>
+            <div class="form-group"><label>Email Address</label><input type="email" class="form-control" name="email"
+                    placeholder="" required /></div>
             <div class="form-group">
-                <label>Secure Phrase (Password)</label>
+                <label>Password</label>
                 <div style="position:relative;">
                     <input type="password" class="form-control" id="passwordField" name="password" placeholder=""
                         required style="padding-right:3.5rem;" />
@@ -248,7 +262,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label>Confirm Secure Phrase</label>
+                <label>Confirm Password</label>
                 <div style="position:relative;">
                     <input type="password" class="form-control" id="confirmPasswordField" name="confirm_password"
                         placeholder="" required style="padding-right:3.5rem;" />
@@ -266,7 +280,7 @@
                 <input type="checkbox" id="termsAgree" name="terms" required />
                 <label for="termsAgree">I agree to the <a href="#">Terms & Conditions</a></label>
             </div>
-            <button type="submit" class="btn-primary" style="margin-bottom: 2.5rem;">Initiate Activation 🛸</button>
+            <button type="submit" class="btn-primary" style="margin-bottom: 2.5rem;">Register</button>
         </form>
 
         <div class="social-header"
@@ -352,7 +366,7 @@
             </button>
         </div>
 
-        <div class="auth-switch">Already established? <a href="login.html">Reconnect Station</a></div>
+        <div class="auth-switch">Already have an account? <a href="login.html">Login here</a></div>
     </div>
     <button class="scroll-top" id="scrollTop"><svg viewBox="0 0 24 24">
             <polyline points="18 15 12 9 6 15" />
@@ -360,7 +374,7 @@
     <script>
         document.getElementById('registerForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            const btn = this.querySelector('button[type="submit"]'); btn.textContent = 'ACTIVATING SIGNAL...'; btn.disabled = true;
+            const btn = this.querySelector('button[type="submit"]'); btn.textContent = 'REGISTERING...'; btn.disabled = true;
             setTimeout(() => { window.location.href = 'dashboard.html'; }, 1500);
         });
         function togglePwd(fieldId, iconId) {
