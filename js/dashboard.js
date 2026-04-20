@@ -1,5 +1,5 @@
 /* ================================================
-   HUMANE — Dashboard JavaScript
+   ZENTRYX — Dashboard JavaScript
 ================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {

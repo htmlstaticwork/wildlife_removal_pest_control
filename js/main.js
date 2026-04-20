@@ -1,15 +1,15 @@
 /* ================================================
-   HUMANE — Global JavaScript
+   ZENTRYX — Global JavaScript
 ================================================ */
 
 // ── Theme ──
-const getTheme = () => localStorage.getItem('humane-theme') || 'light';
-const setTheme = (t) => { document.documentElement.setAttribute('data-theme', t); localStorage.setItem('humane-theme', t); };
+const getTheme = () => localStorage.getItem('zentryx-theme') || 'light';
+const setTheme = (t) => { document.documentElement.setAttribute('data-theme', t); localStorage.setItem('zentryx-theme', t); };
 const toggleTheme = () => setTheme(getTheme() === 'dark' ? 'light' : 'dark');
 
 // ── RTL ──
-const getRTL = () => localStorage.getItem('humane-rtl') === 'true';
-const setRTL = (v) => { document.documentElement.setAttribute('dir', v ? 'rtl' : 'ltr'); localStorage.setItem('humane-rtl', v); };
+const getRTL = () => localStorage.getItem('zentryx-rtl') === 'true';
+const setRTL = (v) => { document.documentElement.setAttribute('dir', v ? 'rtl' : 'ltr'); localStorage.setItem('zentryx-rtl', v); };
 const toggleRTL = () => setRTL(!getRTL());
 
 // ── Init ──

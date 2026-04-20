@@ -1,5 +1,5 @@
 /* ================================================
-   HUMANE — Global Design System
+   ZENTRYX — Global Design System
    Forest · Nature · Wildlife
 ================================================ */
 
@@ -417,7 +417,7 @@ section {
 .nav a:hover,
 .nav a.active {
     color: var(--primary);
-    background: rgba(45, 80, 22, 0.08);
+    background: rgba(255, 25, 25, 0.08);
 }
 
 .nav a.nav-dashboard {
@@ -1179,8 +1179,10 @@ select.form-control {
     transition: color var(--transition);
 }
 
-.mobile-nav a:hover {
+.mobile-nav a:hover,
+.mobile-nav a.active {
     color: var(--primary);
+    font-weight: 700;
 }
 
 .mobile-nav a.nav-dashboard {

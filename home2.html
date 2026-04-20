@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Humane Elite — Concierge Wildlife Protection</title>
+    <title>Zentryx Elite — Concierge Wildlife Protection</title>
     <link rel="stylesheet" href="css/style.css" />
     <style>
         .elite-hero {
@@ -119,9 +119,41 @@
             background: rgba(255, 255, 255, 1);
             color: #000 !important;
         }
+
+        @media (max-width: 1024px) {
+            .dna-section .container>div:nth-child(2) {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+
+            .dna-card {
+                transform: none !important;
+            }
+
+            .sentinel-section .container,
+            .command-center-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+            }
+
+            .sentinel-text,
+            .lab-intel-text {
+                text-align: center !important;
+            }
+
+            .sentinel-text p,
+            .lab-intel-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .lab-intel-text div[style*="grid"] {
+                justify-content: center;
+            }
+        }
     </style>
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23FF1919'/><path d='M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z' fill='white'/></svg>" />
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF1919' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg>" />
 </head>
 
 <body>
@@ -130,10 +162,10 @@
     <header class="header" id="header">
         <div class="header-inner">
             <a href="index.html" class="logo">
-                <span class="logo-mark"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
+                <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap='round' stroke-linejoin='round'>
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     </svg></span>
-                Humane
+                Zentryx
             </a>
             <nav class="nav">
                 <a href="index.html">Home</a>
@@ -163,9 +195,9 @@
     <div class="overlay" id="overlay"></div>
     <nav class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-header">
-            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                    </svg></span>Humane</a>
+            <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap='round' stroke-linejoin='round'>
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg></span>Zentryx</a>
             <button class="mobile-nav-close icon-btn" id="mobileNavClose"><svg viewBox="0 0 24 24" width="18"
                     height="18" stroke="currentColor" fill="none" stroke-width="2">
                     <path d="M18 6 6 18M6 6l12 12" />
@@ -202,11 +234,12 @@
             <div class="sentinel-text reveal">
                 <span class="section-label" style="color:#FF1919; margin-bottom:1rem; display:block;">Phase 01:
                     Intelligence</span>
-                <h2 style="color:var(--text); font-size:3.5rem; margin-bottom:2rem;">Intelligence-Driven Pest Control.
+                <h2 style="color:var(--text); font-size:3.5rem; margin-bottom:2rem;">Intelligence-Driven Ethical
+                    Defense.
                 </h2>
                 <p style="color:var(--text-muted); font-size:1.1rem; line-height:1.8;">Our advanced detection
                     systems identify invasive pest activity and wildlife breaches before they cause structural damage.
-                    We use real-time data to deploy targeted elimination and exclusion protocols.</p>
+                    We use real-time data to deploy targeted relocation and exclusion protocols.</p>
                 <div style="margin-top:3rem; display:flex; flex-direction:column; gap:1.5rem;">
                     <div class="glass"
                         style="padding:1.5rem; border-radius:16px; border:1px solid rgba(255,25,25,0.2);">
@@ -241,7 +274,7 @@
             </div>
             <div class="reveal-text container"
                 style="position:relative; z-index:10; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
-                <h2 style="color:#fff; font-size:4rem; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">Pest Barrier
+                <h2 style="color:#fff; font-size:4rem; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">Ethical Barrier
                     Excellence.</h2>
                 <p style="color:#fff; font-size:1.25rem; max-width:700px; margin-top:2rem;">Advanced chemical-free
                     barriers and precision exclusion technology that keeps rodents, insects, and wildlife out of your
@@ -259,21 +292,21 @@
             <div style="text-align:center; margin-bottom:4rem;">
                 <span class="section-label" style="color:#FF1919; margin-bottom:1rem; display:block;">Phase 03:
                     Precision Control</span>
-                <h2 style="color:var(--text); font-size:3.5rem;">Scientific Pest Elimination.</h2>
+                <h2 style="color:var(--text); font-size:3.5rem;">Scientific Ethical Defense.</h2>
             </div>
             <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:3rem;">
                 <div class="reveal dna-card"
                     style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,25,25,0.15); padding:3rem; border-radius:40px; transition:0.4s;">
                     <div style="font-size:3rem; margin-bottom:2rem;">🧬</div>
-                    <h3 style="color:var(--text); margin-bottom:1.5rem;">Targeted Eradication</h3>
+                    <h3 style="color:var(--text); margin-bottom:1.5rem;">Targeted Exclusion</h3>
                     <p style="color:var(--text-muted); font-size:0.95rem;">Application of host-specific,
-                        eco-friendly treatments to eliminate infestations without impacting your home's ecosystem.</p>
+                        eco-friendly treatments to resolve infestations without impacting your home's ecosystem.</p>
                 </div>
                 <div class="reveal dna-card"
                     style="background:rgba(255,25,25,0.05); border:1px solid #FF1919; padding:3rem; border-radius:40px; transition:0.4s; transform:translateY(-30px);">
                     <div style="font-size:3rem; margin-bottom:2rem;">📊</div>
-                    <h3 style="color:#14171F; margin-bottom:1.5rem;">Real-time HUD</h3>
-                    <p style="color:#4a5568; font-size:0.95rem;">Elite members receive a military-grade
+                    <h3 style="color:var(--text); margin-bottom:1.5rem;">Real-time HUD</h3>
+                    <p style="color:var(--text-muted); font-size:0.95rem;">Elite members receive a military-grade
                         interactive dashboard visualizing every sensor node.</p>
                 </div>
                 <div class="reveal dna-card"
@@ -347,9 +380,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24">
-                                <path d="M12 2L8 8H4l4 4-2 8 6-4 6 4-2-8 4-4h-4L12 2z" />
-                            </svg></span>Humane</a>
+                    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap='round' stroke-linejoin='round'>
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg></span>Zentryx</a>
                     <p>Ethical wildlife removal and restoration. Certified Biology Specialists based in Portland, OR.
                     </p>
                 </div>
@@ -381,11 +414,20 @@
                                 <rect x="2" y="2" width="20" height="20" rx="5" />
                                 <circle cx="12" cy="12" r="4" />
                             </svg></a>
+                        <a href="#" class="social-link tw"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z" />
+                            </svg></a>
+                        <a href="#" class="social-link li"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Humane — Premium Wildlife Solutions. All Rights Reserved.</p>
+                <p>© 2026 Zentryx — Premium Wildlife Solutions. All Rights Reserved.</p>
             </div>
         </div>
         <script>

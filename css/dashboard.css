@@ -1,5 +1,5 @@
 /* ================================================
-   HUMANE — Dashboard Design System
+   ZENTRYX — Dashboard Design System
    High-Contrast Red / Dark Navy (Tactical)
 ================================================ */
 
@@ -427,15 +427,16 @@ tr:last-child td {
     }
 
     .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
-        margin-bottom: 2.5rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 3rem;
     }
 
     .topbar-actions {
-        width: 100%;
-        justify-content: space-between;
+        width: auto;
+        justify-content: flex-end;
     }
 
     .metrics-grid {
@@ -462,6 +463,17 @@ tr:last-child td {
 }
 
 @media (max-width: 600px) {
+    .topbar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1.5rem !important;
+    }
+
+    .topbar-actions {
+        width: 100% !important;
+        justify-content: space-between !important;
+    }
+
     .page-title h2 {
         font-size: 1.75rem;
     }
