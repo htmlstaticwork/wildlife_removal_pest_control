@@ -464,18 +464,38 @@ tr:last-child td {
 
 @media (max-width: 600px) {
     .topbar {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 1.5rem !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 0.5rem !important;
+        margin-bottom: 2rem !important;
     }
 
     .topbar-actions {
-        width: 100% !important;
-        justify-content: space-between !important;
+        width: auto !important;
+        gap: 0.25rem !important;
+    }
+
+    .notification-btn {
+        width: 32px !important;
+        height: 32px !important;
+        padding: 0 !important;
+        font-size: 0.9rem !important;
+    }
+
+    .notification-btn svg {
+        width: 16px !important;
+        height: 16px !important;
     }
 
     .page-title h2 {
-        font-size: 1.75rem;
+        font-size: 1.1rem !important;
+        white-space: nowrap;
+    }
+
+    .page-title p {
+        font-size: 0.7rem !important;
+        white-space: nowrap;
     }
 
     .user-profile span {
@@ -520,4 +540,52 @@ tr:last-child td {
     height: 20px;
     stroke: #fff;
     fill: none;
+}
+
+/* ── RTL SUPPORT ── */
+[dir="rtl"] .sidebar {
+    right: 0;
+    left: auto;
+    border-right: none;
+    border-left: 1px solid var(--dash-border);
+}
+
+[dir="rtl"] .main-content {
+    margin-left: 0 !important;
+    margin-right: var(--dash-sidebar-w) !important;
+}
+
+[dir="rtl"] .nav-link.active {
+    border-left: none;
+    border-right: 4px solid var(--dash-primary);
+    margin-left: 0;
+    margin-right: -1.5rem;
+    padding-left: 1.25rem;
+    padding-right: 2.75rem;
+    border-radius: 12px 0 0 12px;
+}
+
+[dir="rtl"] .nav-label {
+    padding-left: 0;
+    padding-right: 0.75rem;
+}
+
+[dir="rtl"] .sidebar-toggle {
+    margin-right: 0;
+    margin-left: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    [dir="rtl"] .sidebar {
+        transform: translateX(100%);
+        right: 0;
+    }
+
+    [dir="rtl"] .sidebar.active {
+        transform: translateX(0);
+    }
+
+    [dir="rtl"] .main-content {
+        margin-right: 0 !important;
+    }
 }

@@ -23,6 +23,7 @@
         @media (max-width: 900px) {
             .sidebar-toggle {
                 display: block;
+                margin-right: 0.5rem;
             }
         }
 
@@ -66,7 +67,7 @@
 
             <div class="nav-group">
                 <div class="nav-label">Security & Prevention</div>
-                <a href="#" class="nav-link" data-view="barriers"><span>🛡️</span> Property Barriers</a>
+                <a href="#" class="nav-link" data-view="barriers"><span>🛡️</span> Property Barrier</a>
                 <a href="#" class="nav-link" data-view="alerts"><span>🛑</span> Motion Alerts</a>
             </div>
 
@@ -92,8 +93,7 @@
                     <button class="sidebar-toggle" id="sidebarToggle">☰</button>
                     <div class="page-title">
                         <h2>Service Overview</h2>
-                        <p>Service Zone: Portland Core — Status: <span style="color:var(--success);">Active</span>
-                        </p>
+                       
                     </div>
                 </div>
                 <div class="topbar-actions">
@@ -388,7 +388,14 @@
             const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
             const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
             document.documentElement.setAttribute('dir', newDir);
+            rtlBtn.title = newDir === 'rtl' ? 'LTR' : 'RTL';
+            localStorage.setItem('zentryx-rtl', newDir);
         });
+
+        // Initial RTL state
+        const initialDir = localStorage.getItem('zentryx-rtl') || 'ltr';
+        document.documentElement.setAttribute('dir', initialDir);
+        rtlBtn.title = initialDir === 'rtl' ? 'LTR' : 'RTL';
 
         const scrollBtn = document.getElementById('scrollTop');
         if (scrollBtn) {
